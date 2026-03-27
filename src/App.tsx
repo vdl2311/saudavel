@@ -162,6 +162,19 @@ function SalesPage({ quizData }: { quizData: { name: string; answers: string[] }
   const [diagnosis, setDiagnosis] = useState<string>("Detectamos o acúmulo de Biofilme Adeso (O efeito \"Cimento\").");
   const [loadingDiagnosis, setLoadingDiagnosis] = useState(true);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [showSticky, setShowSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 500) {
+        setShowSticky(true);
+      } else {
+        setShowSticky(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -177,16 +190,17 @@ function SalesPage({ quizData }: { quizData: { name: string; answers: string[] }
       const fallbackText = "Seu perfil indica um acúmulo de resíduos nas paredes do cólon, o que dificulta a absorção de nutrientes e causa o inchaço abdominal relatado.";
 
       try {
-        const apiKey = process.env.GEMINI_API_KEY;
-        if (!apiKey) {
-          console.warn("GEMINI_API_KEY not found, using fallback diagnosis.");
+        const openRouterKey = process.env.OPENROUTER_API_KEY || (import.meta as any).env?.VITE_OPENROUTER_API_KEY;
+        const geminiKey = process.env.GEMINI_API_KEY;
+
+        if (!openRouterKey && !geminiKey) {
+          console.warn("Nenhuma chave de API encontrada (OpenRouter ou Gemini), usando diagnóstico padrão.");
           setDiagnosisTitle(fallbackTitle);
           setDiagnosis(fallbackText);
           setLoadingDiagnosis(false);
           return;
         }
 
-        const ai = new GoogleGenAI({ apiKey });
         const prompt = `Atue como um especialista em saúde intestinal (Protocolo de Bama).
 Baseado nas seguintes respostas de um quiz de um paciente chamado ${quizData.name}:
 1. Queixa: ${quizData.answers[0]}
@@ -197,34 +211,67 @@ Baseado nas seguintes respostas de um quiz de um paciente chamado ${quizData.nam
 
 Crie um diagnóstico curto, impactante e personalizado explicando o problema intestinal do paciente e como o acúmulo de biofilme ou inércia intestinal está causando isso. Use um tom empático mas de alerta.
 
-Retorne um objeto JSON com as seguintes propriedades:
-- "title": Um título curto e impactante para o diagnóstico (ex: "Inércia Intestinal Nível 2", "Acúmulo Crítico de Biofilme", "Disbiose Severa", etc).
-- "diagnosis": O texto do diagnóstico em si (máximo de 3 frases). Não use formatação markdown.`;
+Retorne APENAS um objeto JSON válido com as seguintes propriedades (sem formatação markdown, sem crases):
+{
+  "title": "Um título curto e impactante para o diagnóstico",
+  "diagnosis": "O texto do diagnóstico em si (máximo de 3 frases)"
+}`;
 
         // Create a timeout promise
         const timeoutPromise = new Promise((_, reject) => 
-          setTimeout(() => reject(new Error("Timeout")), 8000)
+          setTimeout(() => reject(new Error("Timeout")), 10000)
         );
 
-        // Race the AI call against the timeout
-        const response = await Promise.race([
-          ai.models.generateContent({
-            model: "gemini-3-flash-preview",
-            contents: prompt,
-            config: {
-              responseMimeType: "application/json",
-            }
-          }),
-          timeoutPromise
-        ]) as any;
+        let responseText = "";
+
+        if (openRouterKey) {
+          // Chamada para OpenRouter (usando GPT-4o-mini por padrão)
+          const fetchPromise = fetch("https://openrouter.ai/api/v1/chat/completions", {
+            method: "POST",
+            headers: {
+              "Authorization": `Bearer ${openRouterKey}`,
+              "Content-Type": "application/json",
+              "HTTP-Referer": window.location.origin,
+              "X-Title": "Protocolo de Bama"
+            },
+            body: JSON.stringify({
+              model: "openai/gpt-4o-mini",
+              messages: [{ role: "user", content: prompt }]
+            })
+          }).then(res => res.json());
+
+          const data = await Promise.race([fetchPromise, timeoutPromise]) as any;
+          if (data && data.choices && data.choices.length > 0) {
+            responseText = data.choices[0].message.content;
+          }
+        } else if (geminiKey) {
+          // Chamada para Gemini
+          const ai = new GoogleGenAI({ apiKey: geminiKey });
+          const response = await Promise.race([
+            ai.models.generateContent({
+              model: "gemini-3-flash-preview",
+              contents: prompt,
+              config: {
+                responseMimeType: "application/json",
+              }
+            }),
+            timeoutPromise
+          ]) as any;
+          
+          if (response && response.text) {
+            responseText = response.text;
+          }
+        }
         
-        if (response && response.text) {
+        if (responseText) {
           try {
-            const result = JSON.parse(response.text);
+            // Limpar possíveis crases de markdown
+            const cleanedText = responseText.replace(/```json/gi, '').replace(/```/g, '').trim();
+            const result = JSON.parse(cleanedText);
             setDiagnosisTitle(result.title || fallbackTitle);
             setDiagnosis(result.diagnosis || fallbackText);
           } catch (e) {
-            setDiagnosis(response.text.substring(0, 250));
+            setDiagnosis(responseText.substring(0, 250));
             setDiagnosisTitle(fallbackTitle);
           }
         } else {
@@ -264,7 +311,7 @@ Retorne um objeto JSON com as seguintes propriedades:
   };
 
   return (
-    <div className="font-serif text-[#1a1a1a] bg-[#faf9f6] leading-[1.8]">
+    <div className="font-serif text-[#1a1a1a] bg-[#faf9f6] leading-[1.8] pb-24">
       {/* Barra Alerta */}
       <div className="bg-[#b91c1c] text-white text-center p-3 font-sans text-[13px] font-bold uppercase tracking-[1px]">
         ⚠️ OFERTA LIMITADA — Preço especial de lançamento expira em: {formatTime(timeLeft)}
@@ -678,6 +725,23 @@ Retorne um objeto JSON com as seguintes propriedades:
           </div>
         </div>
       </footer>
+
+      {/* Sticky CTA */}
+      <div className={`fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-[0_-10px_20px_-5px_rgba(0,0,0,0.15)] p-3 md:p-4 z-50 transition-transform duration-300 ${showSticky ? 'translate-y-0' : 'translate-y-full'}`}>
+        <div className="max-w-[680px] mx-auto flex flex-col items-center gap-2">
+          <a href="https://pay.hotmart.com/M105084214G" className="w-full bg-[#16a34a] text-white text-center no-underline py-3 px-4 rounded-xl text-[16px] md:text-[18px] font-black font-sans transition-all duration-300 border-b-[4px] border-[#15803d] hover:translate-y-[2px] hover:border-b-[2px] flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2">
+            <span>SIM — QUERO MINHA LEVEZA ANCESTRAL →</span>
+            <span className="bg-white text-[#16a34a] px-2 py-0.5 rounded text-[14px] md:text-[15px] ml-0 md:ml-2">R$ 37,90</span>
+          </a>
+          <div className="text-center text-[10px] md:text-[11px] text-gray-500 font-bold uppercase tracking-wider flex flex-wrap items-center justify-center gap-1 md:gap-2">
+            <span>🔒 Pagamento 100% seguro</span>
+            <span>·</span>
+            <span>SSL criptografado</span>
+            <span>·</span>
+            <span>Acesso imediato</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
