@@ -3,166 +3,33 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
-import { GoogleGenAI } from '@google/genai';
+import React, { useState, useEffect, useRef } from 'react';
 
-function Quiz({ onComplete }: { onComplete: (data: { name: string; answers: string[] }) => void }) {
-  const [currentStep, setCurrentStep] = useState(1);
-  const [userName, setUserName] = useState('');
-  const [answers, setAnswers] = useState<string[]>([]);
-  const [analysisText, setAnalysisText] = useState('Analisando respostas...');
-
-  const handleNextStep = (step: number, answer?: string) => {
-    if (step === 1 && userName.trim() === '') {
-      alert('Por favor, digite seu nome.');
-      return;
-    }
-    if (answer) {
-      setAnswers((prev) => [...prev, answer]);
-    }
-    setCurrentStep(step + 1);
-  };
-
-  const startAnalysis = (answer: string) => {
-    const finalAnswers = [...answers, answer];
-    setAnswers(finalAnswers);
-    setCurrentStep(7); // Analysis step
-    const texts = [
-      "Verificando nível de biofilme...",
-      "Comparando com microbiota centenária...",
-      "Calculando protocolo de 14 dias...",
-      "Diagnóstico Pronto!"
-    ];
-
-    let i = 0;
-    const interval = setInterval(() => {
-      setAnalysisText(texts[i]);
-      i++;
-      if (i === texts.length) {
-        clearInterval(interval);
-        setTimeout(() => {
-          onComplete({ name: userName, answers: finalAnswers });
-        }, 1000);
-      }
-    }, 1200);
-  };
-
-  const progress = currentStep <= 6 ? currentStep * 16.6 : 100;
-
-  return (
-    <div className="flex items-center justify-center min-h-screen p-4 bg-gray-100 font-sans">
-      <div className="max-w-md w-full bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
-        <div className="text-center mb-8">
-          <span className="text-green-600 font-bold text-xs uppercase tracking-widest bg-green-50 px-3 py-1 rounded-full">
-            Protocolo de Bama
-          </span>
-          <div className="w-full bg-gray-200 h-1.5 mt-4 rounded-full overflow-hidden">
-            <div
-              className="bg-green-500 h-full transition-all duration-500"
-              style={{ width: `${progress}%` }}
-            ></div>
-          </div>
-        </div>
-
-        {currentStep === 1 && (
-          <div>
-            <div className="mb-8 bg-green-50 p-5 rounded-2xl border border-green-100">
-              <h3 className="font-black text-green-800 text-lg mb-2">O Segredo de Bama</h3>
-              <p className="text-sm text-green-700 leading-relaxed">
-                Nas montanhas isoladas de Bama, na China, vive uma das populações mais longevas do mundo. Lá, centenários mantêm uma saúde digestiva impecável, sem inchaço ou constipação. <strong>O Protocolo de Bama</strong> é uma jornada de 14 dias inspirada nesses hábitos para restaurar a sua vitalidade digestiva ancestral.
-              </p>
-            </div>
-            <h2 className="text-2xl font-black text-gray-800 mb-6 leading-tight">Para começar, qual o seu nome?</h2>
-            <input
-              type="text"
-              value={userName}
-              onChange={(e) => setUserName(e.target.value)}
-              placeholder="Seu nome aqui..."
-              className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-green-500 outline-none text-lg mb-4"
-            />
-            <button
-              onClick={() => handleNextStep(1)}
-              className="w-full bg-green-600 text-white font-bold py-4 rounded-xl shadow-lg hover:bg-green-700 transition"
-            >
-              CONTINUAR
-            </button>
-          </div>
-        )}
-
-        {currentStep === 2 && (
-          <div>
-            <h2 className="text-2xl font-black text-gray-800 mb-6">Qual a sua principal queixa hoje?</h2>
-            <div className="space-y-3">
-              <button onClick={() => handleNextStep(2, 'Barriga inchada (parece grávida)')} className="w-full text-left p-4 border-2 border-gray-100 rounded-xl hover:bg-green-50 hover:border-green-500 transition font-semibold">Barriga inchada (parece grávida)</button>
-              <button onClick={() => handleNextStep(2, 'Passo mais de 3 dias sem ir ao banheiro')} className="w-full text-left p-4 border-2 border-gray-100 rounded-xl hover:bg-green-50 hover:border-green-500 transition font-semibold">Passo mais de 3 dias sem ir ao banheiro</button>
-              <button onClick={() => handleNextStep(2, 'Gases e desconforto após comer')} className="w-full text-left p-4 border-2 border-gray-100 rounded-xl hover:bg-green-50 hover:border-green-500 transition font-semibold">Gases e desconforto após comer</button>
-            </div>
-          </div>
-        )}
-
-        {currentStep === 3 && (
-          <div>
-            <h2 className="text-2xl font-black text-gray-800 mb-6">Você sente que seu humor ou cansaço pioram quando o intestino trava?</h2>
-            <div className="space-y-3">
-              <button onClick={() => handleNextStep(3, 'Sim, fico irritada e sem energia')} className="w-full text-left p-4 border-2 border-gray-100 rounded-xl hover:bg-green-50 hover:border-green-500 transition font-semibold">Sim, fico irritada e sem energia</button>
-              <button onClick={() => handleNextStep(3, 'Sinto muito peso nas pernas e corpo')} className="w-full text-left p-4 border-2 border-gray-100 rounded-xl hover:bg-green-50 hover:border-green-500 transition font-semibold">Sinto muito peso nas pernas e corpo</button>
-              <button onClick={() => handleNextStep(3, 'Não notei relação ainda')} className="w-full text-left p-4 border-2 border-gray-100 rounded-xl hover:bg-green-50 hover:border-green-500 transition font-semibold">Não notei relação ainda</button>
-            </div>
-          </div>
-        )}
-
-        {currentStep === 4 && (
-          <div>
-            <h2 className="text-2xl font-black text-gray-800 mb-6">Com que frequência você usa laxantes ou chás para "ajudar"?</h2>
-            <div className="space-y-3">
-              <button onClick={() => handleNextStep(4, 'Raramente (tento na alimentação)')} className="w-full text-left p-4 border-2 border-gray-100 rounded-xl hover:bg-green-50 hover:border-green-500 transition font-semibold">Raramente (tento na alimentação)</button>
-              <button onClick={() => handleNextStep(4, 'Toda semana (se não usar, não vou)')} className="w-full text-left p-4 border-2 border-gray-100 rounded-xl hover:bg-green-50 hover:border-green-500 transition font-semibold">Toda semana (se não usar, não vou)</button>
-              <button onClick={() => handleNextStep(4, 'Diariamente (meu intestino viciou)')} className="w-full text-left p-4 border-2 border-gray-100 rounded-xl hover:bg-green-50 hover:border-green-500 transition font-semibold">Diariamente (meu intestino viciou)</button>
-            </div>
-          </div>
-        )}
-
-        {currentStep === 5 && (
-          <div>
-            <h2 className="text-2xl font-black text-gray-800 mb-6">Sabia que o excesso de fibras pode criar um "biofilme de cimento" se o intestino estiver fraco?</h2>
-            <div className="space-y-3">
-              <button onClick={() => handleNextStep(5, 'Não sabia (achei que fibra sempre ajudava)')} className="w-full text-left p-4 border-2 border-gray-100 rounded-xl hover:bg-green-50 hover:border-green-500 transition font-semibold">Não sabia (achei que fibra sempre ajudava)</button>
-              <button onClick={() => handleNextStep(5, 'Já ouvi falar, mas não sei resolver')} className="w-full text-left p-4 border-2 border-gray-100 rounded-xl hover:bg-green-50 hover:border-green-500 transition font-semibold">Já ouvi falar, mas não sei resolver</button>
-            </div>
-          </div>
-        )}
-
-        {currentStep === 6 && (
-          <div>
-            <h2 className="text-2xl font-black text-gray-800 mb-6">Se houvesse um método de 14 dias para resetar seu sistema, você começaria hoje?</h2>
-            <div className="space-y-3">
-              <button onClick={() => startAnalysis('Sim! Quero minha leveza de volta')} className="w-full text-left p-4 border-2 border-gray-100 rounded-xl hover:bg-green-50 hover:border-green-500 transition font-semibold uppercase tracking-tight">Sim! Quero minha leveza de volta</button>
-              <button onClick={() => startAnalysis('Apenas se for natural e sem remédios')} className="w-full text-left p-4 border-2 border-gray-100 rounded-xl hover:bg-green-50 hover:border-green-500 transition font-semibold">Apenas se for natural e sem remédios</button>
-            </div>
-          </div>
-        )}
-
-        {currentStep === 7 && (
-          <div className="text-center">
-            <div className="flex justify-center mb-6">
-              <div className="w-16 h-16 border-4 border-green-200 border-t-green-600 rounded-full animate-spin"></div>
-            </div>
-            <h2 className="text-xl font-bold text-gray-800 mb-2">{analysisText}</h2>
-            <p className="text-sm text-gray-500 italic">Cruzando dados com o Padrão de Bama</p>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
-
-function SalesPage({ quizData }: { quizData: { name: string; answers: string[] } }) {
+function SalesPage() {
   const [timeLeft, setTimeLeft] = useState(21 * 3600 + 29 * 60 + 57); // 21:29:57 in seconds
-  const [diagnosisTitle, setDiagnosisTitle] = useState<string>("Inércia Intestinal Nível 2");
-  const [diagnosis, setDiagnosis] = useState<string>("Detectamos o acúmulo de Biofilme Adeso (O efeito \"Cimento\").");
-  const [loadingDiagnosis, setLoadingDiagnosis] = useState(true);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [showSticky, setShowSticky] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(true);
+  const [showCta, setShowCta] = useState(false);
+  const videoRef = useRef<HTMLIFrameElement>(null);
+
+  const ativarSom = () => {
+    const iframe = videoRef.current;
+    if (iframe) {
+      // Envia comando para o iframe ativar o som (recarrega com muted=false)
+      const currentSrc = iframe.src;
+      iframe.src = currentSrc.replace("muted=true", "muted=false");
+    }
+
+    setShowOverlay(false);
+    
+    // TEMPO PARA O BOTÃO APARECER (em segundos)
+    // 4 minutos e 30 segundos = 270 segundos
+    const tempoDelay = 270; 
+    setTimeout(() => {
+      setShowCta(true);
+    }, tempoDelay * 1000);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -182,118 +49,6 @@ function SalesPage({ quizData }: { quizData: { name: string; answers: string[] }
     }, 1000);
     return () => clearInterval(timer);
   }, []);
-
-  useEffect(() => {
-    async function fetchDiagnosis() {
-      // Fallback diagnosis in case of failure
-      const fallbackTitle = "Inércia Intestinal Identificada";
-      const fallbackText = "Seu perfil indica um acúmulo de resíduos nas paredes do cólon, o que dificulta a absorção de nutrientes e causa o inchaço abdominal relatado.";
-
-      try {
-        const openRouterKey = process.env.OPENROUTER_API_KEY || (import.meta as any).env?.VITE_OPENROUTER_API_KEY;
-        const geminiKey = process.env.GEMINI_API_KEY;
-
-        if (!openRouterKey && !geminiKey) {
-          console.warn("Nenhuma chave de API encontrada (OpenRouter ou Gemini), usando diagnóstico padrão.");
-          setDiagnosisTitle(fallbackTitle);
-          setDiagnosis(fallbackText);
-          setLoadingDiagnosis(false);
-          return;
-        }
-
-        const prompt = `Atue como um especialista em saúde intestinal (Protocolo de Bama).
-Baseado nas seguintes respostas de um quiz de um paciente chamado ${quizData.name}:
-1. Queixa: ${quizData.answers[0]}
-2. Humor/Cansaço: ${quizData.answers[1]}
-3. Uso de laxantes: ${quizData.answers[2]}
-4. Conhecimento sobre fibras: ${quizData.answers[3]}
-5. Disposição: ${quizData.answers[4]}
-
-Crie um diagnóstico curto, impactante e personalizado explicando o problema intestinal do paciente e como o acúmulo de biofilme ou inércia intestinal está causando isso. Use um tom empático mas de alerta.
-
-Retorne APENAS um objeto JSON válido com as seguintes propriedades (sem formatação markdown, sem crases):
-{
-  "title": "Um título curto e impactante para o diagnóstico",
-  "diagnosis": "O texto do diagnóstico em si (máximo de 3 frases)"
-}`;
-
-        // Create a timeout promise
-        const timeoutPromise = new Promise((_, reject) => 
-          setTimeout(() => reject(new Error("Timeout")), 10000)
-        );
-
-        let responseText = "";
-
-        if (openRouterKey) {
-          // Chamada para OpenRouter (usando GPT-4o-mini por padrão)
-          const fetchPromise = fetch("https://openrouter.ai/api/v1/chat/completions", {
-            method: "POST",
-            headers: {
-              "Authorization": `Bearer ${openRouterKey}`,
-              "Content-Type": "application/json",
-              "HTTP-Referer": window.location.origin,
-              "X-Title": "Protocolo de Bama"
-            },
-            body: JSON.stringify({
-              model: "openai/gpt-4o-mini",
-              messages: [{ role: "user", content: prompt }]
-            })
-          }).then(res => res.json());
-
-          const data = await Promise.race([fetchPromise, timeoutPromise]) as any;
-          if (data && data.choices && data.choices.length > 0) {
-            responseText = data.choices[0].message.content;
-          }
-        } else if (geminiKey) {
-          // Chamada para Gemini
-          const ai = new GoogleGenAI({ apiKey: geminiKey });
-          const response = await Promise.race([
-            ai.models.generateContent({
-              model: "gemini-3-flash-preview",
-              contents: prompt,
-              config: {
-                responseMimeType: "application/json",
-              }
-            }),
-            timeoutPromise
-          ]) as any;
-          
-          if (response && response.text) {
-            responseText = response.text;
-          }
-        }
-        
-        if (responseText) {
-          try {
-            // Limpar possíveis crases de markdown
-            const cleanedText = responseText.replace(/```json/gi, '').replace(/```/g, '').trim();
-            const result = JSON.parse(cleanedText);
-            setDiagnosisTitle(result.title || fallbackTitle);
-            setDiagnosis(result.diagnosis || fallbackText);
-          } catch (e) {
-            setDiagnosis(responseText.substring(0, 250));
-            setDiagnosisTitle(fallbackTitle);
-          }
-        } else {
-          setDiagnosisTitle(fallbackTitle);
-          setDiagnosis(fallbackText);
-        }
-      } catch (error) {
-        console.error("Error generating diagnosis:", error);
-        setDiagnosisTitle(fallbackTitle);
-        setDiagnosis(fallbackText);
-      } finally {
-        setLoadingDiagnosis(false);
-      }
-    }
-    
-    if (quizData && quizData.answers.length > 0) {
-      setLoadingDiagnosis(true);
-      fetchDiagnosis();
-    } else {
-      setLoadingDiagnosis(false);
-    }
-  }, [quizData]);
 
   const formatTime = (seconds: number) => {
     const h = Math.floor(seconds / 3600).toString().padStart(2, '0');
@@ -317,26 +72,6 @@ Retorne APENAS um objeto JSON válido com as seguintes propriedades (sem formata
         ⚠️ OFERTA LIMITADA — Preço especial de lançamento expira em: {formatTime(timeLeft)}
       </div>
 
-      {/* Header Diagnóstico */}
-      <div className="bg-[#1c3557] text-white text-center py-[60px] px-5 border-b-[5px] border-[#f6c445]">
-        <div className="max-w-[680px] mx-auto px-6">
-          <div className="inline-block bg-[#16a34a] py-1.5 px-[15px] rounded-full text-[11px] uppercase font-sans mb-[15px] font-bold">
-            Análise de Microbiota Concluída
-          </div>
-          <p className="text-[#9cb3cc] text-[15px] font-sans">Padrão Identificado para {quizData.name || 'você'}:</p>
-          <h2 className="text-[#f6c445] text-[38px] my-2.5 border-none p-0 leading-tight font-bold">
-            {loadingDiagnosis ? "Analisando..." : diagnosisTitle}
-          </h2>
-          <div className="text-[#7ea3be] font-sans text-[16px] min-h-[48px]">
-            {loadingDiagnosis ? (
-              <span className="animate-pulse">Gerando diagnóstico...</span>
-            ) : (
-              diagnosis
-            )}
-          </div>
-        </div>
-      </div>
-
       {/* Hero Section */}
       <div className="py-[60px] bg-white">
         <div className="max-w-[680px] mx-auto px-6 text-center">
@@ -349,6 +84,40 @@ Retorne APENAS um objeto JSON válido com as seguintes propriedades (sem formata
           <p className="text-[20px] mb-[40px] text-[#444] leading-relaxed">
             Ele está apenas esperando as instruções certas — as mesmas que mantêm centenários de 100 anos em Bama, China, mais leves do que você se sente hoje.
           </p>
+
+          {/* VSL Section */}
+          <div className="vsl-container mb-10" onContextMenu={(e) => e.preventDefault()}>
+            {showOverlay && (
+              <div id="sound-overlay" onClick={ativarSom}>
+                <div className="pulse-button">
+                   🔊 CLIQUE PARA OUVIR COM SOM
+                </div>
+              </div>
+            )}
+
+            <iframe 
+              ref={videoRef}
+              id="bunny-video" 
+              src="https://iframe.mediadelivery.net/embed/627675/c50ef93c-3f50-4e37-9e83-a987385d189d?autoplay=true&muted=true&loop=false&preload=true&controls=false&disableSeeking=true&blockSeeking=true" 
+              loading="lazy" 
+              style={{ border: 0, position: 'absolute', top: 0, height: '100%', width: '100%' }} 
+              allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" 
+              allowFullScreen={true}
+            ></iframe>
+
+            <div id="video-guard" onContextMenu={(e) => e.preventDefault()} onDragStart={(e) => e.preventDefault()} onMouseDown={(e) => e.preventDefault()} onMouseMove={(e) => e.preventDefault()} onMouseUp={(e) => e.preventDefault()} onPointerDown={(e) => e.preventDefault()} onPointerMove={(e) => e.preventDefault()} onPointerUp={(e) => e.preventDefault()} onClick={(e) => e.stopPropagation()} onDoubleClick={(e) => e.stopPropagation()} onTouchStart={(e) => e.preventDefault()} onTouchMove={(e) => e.preventDefault()} onTouchEnd={(e) => e.preventDefault()}></div>
+          </div>
+
+          {showCta && (
+            <div id="cta-wrapper">
+              <a href="https://pay.hotmart.com/M105084214G" className="btn-buy">
+                QUERO O PROTOCOLO DE BAMA AGORA!
+              </a>
+              <p style={{ fontFamily: 'sans-serif', color: '#666', marginTop: '15px', fontSize: '0.9rem' }}>
+                ✅ Acesso imediato • 7 dias de garantia total
+              </p>
+            </div>
+          )}
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 font-sans">
             <div className="bg-[#f3f4f6] p-4 rounded-xl">
@@ -368,13 +137,6 @@ Retorne APENAS um objeto JSON válido com as seguintes propriedades (sem formata
               <div className="text-xs font-bold text-gray-600 uppercase mt-1">Ritual matinal</div>
             </div>
           </div>
-
-          <a href="https://pay.hotmart.com/M105084214G" className="inline-block w-full bg-[#16a34a] text-white no-underline py-5 px-8 rounded-2xl text-[22px] font-black font-sans transition-all duration-300 border-b-[6px] border-[#15803d] shadow-xl hover:translate-y-[2px] hover:border-b-[4px]">
-            QUERO MINHA LEVEZA ANCESTRAL →
-          </a>
-          <p className="text-[13px] text-gray-500 font-sans mt-4">
-            🔒 Garantia incondicional de 7 dias · Acesso imediato
-          </p>
         </div>
       </div>
 
@@ -387,7 +149,7 @@ Retorne APENAS um objeto JSON válido com as seguintes propriedades (sem formata
           </div>
 
           <p className="text-[19px] mb-[30px] text-[#333]">
-            Se você tem mais de 50 anos e sente que seu corpo simplesmente parou de cooperar com você, existe uma razão científica para isso. E ela nada tem a ver com fraqueza, falta de disciplina ou "envelhecimento normal".
+            Se você sente que seu corpo simplesmente parou de cooperar com você, existe uma razão científica para isso. E ela nada tem a ver com fraqueza, falta de disciplina ou o passar dos anos.
           </p>
 
           <ul className="space-y-4 mb-10 font-sans text-[16px] text-[#444]">
@@ -665,7 +427,7 @@ Retorne APENAS um objeto JSON válido com as seguintes propriedades (sem formata
 
           <div className="space-y-4 font-sans">
             {[
-              { q: "Para quem este protocolo é indicado?", a: "Para adultos — especialmente acima dos 40 anos — que sofrem com constipação crônica, inchaço abdominal persistente, sensação de esvaziamento incompleto, fadiga pós-refeição ou que simplesmente percebem que o intestino \"parou de ouvir\". O protocolo é seguro para a maioria das pessoas, mas recomendamos consultar seu médico se você tiver condições inflamatórias intestinais graves." },
+              { q: "Para quem este protocolo é indicado?", a: "Para adultos de todas as idades que sofrem com constipação crônica, inchaço abdominal persistente, sensação de esvaziamento incompleto, fadiga pós-refeição ou que simplesmente percebem que o intestino \"parou de ouvir\". O protocolo é seguro para a maioria das pessoas, mas recomendamos consultar seu médico se você tiver condições inflamatórias intestinais graves." },
               { q: "Preciso comprar produtos caros ou exóticos?", a: "Não. A lista de compras do protocolo usa ingredientes facilmente encontrados em qualquer mercado ou feirinha: abóbora, salsão, limão, gengibre, sementes de chia, linhaça, azeite extravirgem e vinagre de maçã. Os únicos \"suplementos\" mencionados são opcionais (Magnésio Bisglicinato — disponível em farmácias por menos de R$30)." },
               { q: "Em quanto tempo vejo resultado?", a: "Muitas pessoas relatam diferença perceptível nos primeiros 3 dias da Fase 1 (Limpeza de Choque). A transformação mais significativa — com a recolonização da microbiota — ocorre entre os dias 4 e 10. Ao final dos 14 dias, o objetivo é que o seu intestino funcione no \"piloto automático\", sem dependência de laxantes ou rituais elaborados." },
               { q: "É um e-book ou tem acesso a aulas/vídeos?", a: "O Protocolo de Bama é entregue como e-book digital (PDF) — compatível com celular, tablet e computador. Você pode ler, salvar offline e imprimir. O formato foi escolhido intencionalmente: o protocolo é direto ao ponto, sem horas de vídeo para assistir antes de começar." },
@@ -747,21 +509,5 @@ Retorne APENAS um objeto JSON válido com as seguintes propriedades (sem formata
 }
 
 export default function App() {
-  const [showQuiz, setShowQuiz] = useState(true);
-  const [quizData, setQuizData] = useState<{ name: string; answers: string[] }>({ name: '', answers: [] });
-
-  const handleQuizComplete = (data: { name: string; answers: string[] }) => {
-    setQuizData(data);
-    setShowQuiz(false);
-  };
-
-  return (
-    <>
-      {showQuiz ? (
-        <Quiz onComplete={handleQuizComplete} />
-      ) : (
-        <SalesPage quizData={quizData} />
-      )}
-    </>
-  );
+  return <SalesPage />;
 }
