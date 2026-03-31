@@ -81,14 +81,14 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Camada Invisível para bloquear cliques apenas na barra de progresso (Anti-Seeking) */
+/* Camada Invisível para bloquear cliques na barra de progresso (Anti-Seeking) */
 #video-guard {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 20%; /* Cobre apenas a parte inferior onde fica a barra de progresso */
-    z-index: 10; /* Acima do iframe */
+    height: 35%; /* Aumentado para garantir que cubra toda a área da barra de progresso */
+    z-index: 15; /* Garantir que fique acima do iframe */
     background: rgba(0, 0, 0, 0); /* Totalmente transparente */
     pointer-events: auto; /* Captura cliques na barra */
 }

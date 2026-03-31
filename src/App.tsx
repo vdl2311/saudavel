@@ -101,7 +101,7 @@ function SalesPage() {
               id="bunny-video" 
               src="https://iframe.mediadelivery.net/embed/628378/69d7a3d3-ca48-4560-b5b4-bccbe6aff1fc?autoplay=true&muted=true&loop=false&preload=true&controls=false&disableSeeking=true&blockSeeking=true&playsinline=true" 
               loading="lazy" 
-              style={{ border: 0, position: 'absolute', top: 0, height: '100%', width: '100%' }} 
+              style={{ border: 0, position: 'absolute', top: 0, height: '100%', width: '100%', zIndex: 1 }} 
               allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; clipboard-write;" 
             ></iframe>
 
