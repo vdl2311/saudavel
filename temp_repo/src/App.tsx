@@ -23,9 +23,9 @@ function SalesPage() {
 
     setShowOverlay(false);
     
-    // TEMPO PARA O CONTEÚDO APARECER (em segundos)
-    // 3 minutos e 19 segundos = 199 segundos
-    const tempoDelay = 199; 
+    // TEMPO PARA O BOTÃO APARECER (em segundos)
+    // 4 minutos e 30 segundos = 270 segundos
+    const tempoDelay = 270; 
     setTimeout(() => {
       setShowCta(true);
     }, tempoDelay * 1000);
@@ -33,8 +33,7 @@ function SalesPage() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Only show sticky CTA if the main CTA is already visible
-      if (showCta && window.scrollY > 500) {
+      if (window.scrollY > 500) {
         setShowSticky(true);
       } else {
         setShowSticky(false);
@@ -42,7 +41,7 @@ function SalesPage() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [showCta]);
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -77,13 +76,13 @@ function SalesPage() {
       <div className="py-[60px] bg-white">
         <div className="max-w-[680px] mx-auto px-6 text-center">
           <p className="text-[#16a34a] font-sans font-bold text-[14px] uppercase tracking-widest mb-4">
-            O SEGREDO DE BAMA
+            Descoberto nos confins da China · Validado pela ciência
           </p>
-          <h1 className="text-[clamp(28px,5vw,40px)] leading-[1.2] mb-[25px] font-extrabold text-[#111]">
-            Por que estes centenários mantêm um <span className="text-[#b91c1c]">"intestino de bebê"</span> enquanto as fibras transformam sua barriga em um bloco de cimento.
+          <h1 className="text-[clamp(32px,6vw,48px)] leading-[1.1] mb-[25px] font-extrabold text-[#111]">
+            Seu Intestino Não Está <br/><span className="text-[#b91c1c]">Quebrado.</span>
           </h1>
           <p className="text-[20px] mb-[40px] text-[#444] leading-relaxed">
-            Seu corpo está apenas esperando as instruções certas para voltar a funcionar no "piloto automático" — mais leve do que você se sente hoje.
+            Ele está apenas esperando as instruções certas — as mesmas que mantêm centenários de 100 anos em Bama, China, mais leves do que você se sente hoje.
           </p>
 
           {/* VSL Section */}
@@ -99,7 +98,7 @@ function SalesPage() {
             <iframe 
               ref={videoRef}
               id="bunny-video" 
-              src="https://iframe.mediadelivery.net/embed/628378/69d7a3d3-ca48-4560-b5b4-bccbe6aff1fc?autoplay=true&muted=true&loop=false&preload=true&controls=false&disableSeeking=true&blockSeeking=true" 
+              src="https://iframe.mediadelivery.net/embed/627675/c50ef93c-3f50-4e37-9e83-a987385d189d?autoplay=true&muted=true&loop=false&preload=true&controls=false&disableSeeking=true&blockSeeking=true" 
               loading="lazy" 
               style={{ border: 0, position: 'absolute', top: 0, height: '100%', width: '100%' }} 
               allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" 
@@ -110,7 +109,7 @@ function SalesPage() {
           </div>
 
           {showCta && (
-            <div id="cta-wrapper" className="mt-8">
+            <div id="cta-wrapper">
               <a href="https://pay.hotmart.com/M105084214G" className="btn-buy">
                 QUERO O PROTOCOLO DE BAMA AGORA!
               </a>
@@ -119,13 +118,29 @@ function SalesPage() {
               </p>
             </div>
           )}
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 font-sans">
+            <div className="bg-[#f3f4f6] p-4 rounded-xl">
+              <div className="text-3xl font-black text-[#16a34a]">14</div>
+              <div className="text-xs font-bold text-gray-600 uppercase mt-1">Dias de protocolo</div>
+            </div>
+            <div className="bg-[#f3f4f6] p-4 rounded-xl">
+              <div className="text-3xl font-black text-[#16a34a]">7</div>
+              <div className="text-xs font-bold text-gray-600 uppercase mt-1">Capítulos práticos</div>
+            </div>
+            <div className="bg-[#f3f4f6] p-4 rounded-xl">
+              <div className="text-3xl font-black text-[#16a34a]">100+</div>
+              <div className="text-xs font-bold text-gray-600 uppercase mt-1">Anos de sabedoria</div>
+            </div>
+            <div className="bg-[#f3f4f6] p-4 rounded-xl">
+              <div className="text-3xl font-black text-[#16a34a]">30"</div>
+              <div className="text-xs font-bold text-gray-600 uppercase mt-1">Ritual matinal</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Restante da página oculto até o delay */}
-      {showCta && (
-        <div className="animate-[fadeIn_1s_ease-in]">
-          {/* Problem Section */}
+      {/* Problem Section */}
       <div className="py-[80px] bg-[#f8fafc]">
         <div className="max-w-[680px] mx-auto px-6">
           <div className="text-center mb-12">
@@ -472,8 +487,6 @@ function SalesPage() {
           </div>
         </div>
       </footer>
-      </div>
-      )}
 
       {/* Sticky CTA */}
       <div className={`fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-[0_-10px_20px_-5px_rgba(0,0,0,0.15)] p-3 md:p-4 z-50 transition-transform duration-300 ${showSticky ? 'translate-y-0' : 'translate-y-full'}`}>
