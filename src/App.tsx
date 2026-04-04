@@ -113,9 +113,9 @@ function SalesPage() {
       setIsGenerating(true);
       setLoadingMessage(`A processar dados de ${newAnswers.name || 'você'}...`);
       
-      setTimeout(() => {
+      const messageTimer = setTimeout(() => {
         setLoadingMessage('A analisar nível de Biofilme Adeso...');
-      }, 2500);
+      }, 800);
 
       try {
         const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
@@ -151,22 +151,24 @@ function SalesPage() {
           contents: prompt,
         });
 
+        clearTimeout(messageTimer);
         setDiagnosis(response.text || 'Diagnóstico concluído.');
         
         setLoadingMessage('Concluído!');
         setTimeout(() => {
           setIsGenerating(false);
           setShowContent(true);
-        }, 1000);
+        }, 400);
 
       } catch (error) {
         console.error("Erro ao gerar diagnóstico:", error);
+        clearTimeout(messageTimer);
         setDiagnosis(`Olá ${newAnswers.name}, analisamos o seu perfil e identificamos que o Biofilme Adeso está bloqueando o seu intestino. As fibras que você consome estão agindo como cimento nessa crosta. O Ritual de Bama de 30 segundos é o próximo passo ideal para derreter esse bloqueio e devolver o seu ritmo natural.`);
         setLoadingMessage('Concluído!');
         setTimeout(() => {
           setIsGenerating(false);
           setShowContent(true);
-        }, 1000);
+        }, 400);
       }
     }
   };
@@ -777,12 +779,12 @@ function SalesPage() {
 }
 
 export default function App() {
-  const [cookieConsent, setCookieConsent] = useState(true); // Default to true (hidden) until check
+  const [cookieConsent, setCookieConsent] = useState(false);
 
   useEffect(() => {
     const consent = localStorage.getItem('cookieConsent');
-    if (consent !== 'accepted') {
-      setCookieConsent(false);
+    if (consent === 'accepted') {
+      setCookieConsent(true);
     }
   }, []);
 
@@ -801,10 +803,49 @@ export default function App() {
 
       {/* Cookie Banner */}
       {!cookieConsent && (
-        <div id="cookie-banner" style={{ position: 'fixed', bottom: 0, width: '100%', background: '#222', color: '#fff', padding: '15px', textAlign: 'center', fontFamily: 'sans-serif', zIndex: 9999, fontSize: '14px' }}>
-            Este site utiliza cookies para melhorar sua experiência e analisar o tráfego. 
-            Ao continuar navegando, você concorda com nossa <Link to="/privacidade" style={{ color: '#4CAF50', textDecoration: 'underline' }}>Política de Privacidade</Link>.
-            <button onClick={acceptCookies} style={{ marginLeft: '20px', background: '#4CAF50', color: 'white', border: 'none', padding: '8px 15px', cursor: 'pointer', borderRadius: '4px' }}>Aceitar</button>
+        <div 
+          id="cookie-banner" 
+          style={{ 
+            position: 'fixed', 
+            bottom: 0, 
+            left: 0,
+            right: 0,
+            width: '100%', 
+            background: '#111', 
+            color: '#fff', 
+            padding: '20px', 
+            textAlign: 'center', 
+            fontFamily: 'sans-serif', 
+            zIndex: 10000, 
+            fontSize: '14px',
+            boxShadow: '0 -4px 20px rgba(0,0,0,0.3)',
+            borderTop: '2px solid #16a34a'
+          }}
+        >
+          <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '15px' }}>
+            <p style={{ margin: 0, lineHeight: '1.5' }}>
+              Este site utiliza cookies para melhorar sua experiência e analisar o tráfego. 
+              Ao continuar navegando, você concorda com nossa <Link to="/privacidade" style={{ color: '#16a34a', textDecoration: 'underline', fontWeight: 'bold' }}>Política de Privacidade</Link>.
+            </p>
+            <button 
+              onClick={acceptCookies} 
+              style={{ 
+                background: '#16a34a', 
+                color: 'white', 
+                border: 'none', 
+                padding: '10px 30px', 
+                cursor: 'pointer', 
+                borderRadius: '8px',
+                fontWeight: 'bold',
+                fontSize: '15px',
+                transition: 'transform 0.2s'
+              }}
+              onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+              onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+            >
+              Aceitar e Continuar
+            </button>
+          </div>
         </div>
       )}
     </Router>
