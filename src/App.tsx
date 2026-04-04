@@ -121,7 +121,7 @@ function SalesPage() {
         const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
         const prompt = `
           Aja como um especialista em saúde digestiva.
-          Baseado nas seguintes respostas de um quiz, gere um diagnóstico curto, empático e impactante (EXATAMENTE 1 PARÁGRAFO) sobre o problema de "Biofilme Adeso" no intestino.
+          Baseado nas seguintes respostas de um quiz, gere um diagnóstico MUITO CURTO, empático e impactante (MÁXIMO DE 3 FRASES CURTAS) sobre o problema de "Biofilme Adeso" no intestino.
           
           Nome: ${newAnswers.name}
           Idade: ${newAnswers.age}
@@ -138,12 +138,10 @@ function SalesPage() {
           
           O diagnóstico deve:
           1. Chamar a pessoa pelo nome.
-          2. Explicar que o problema não é culpa dela, e sim do "Biofilme Adeso" (uma crosta tóxica).
-          3. Explicar como as respostas dela (especialmente sobre fibras e inchaço) confirmam a presença dessa crosta que age como "cimento".
-          4. Terminar dizendo que o "Ritual de Bama de 30 segundos" é a solução para derreter essa crosta.
+          2. Explicar que o problema é o "Biofilme Adeso" (uma crosta tóxica) e que as fibras agem como "cimento".
+          3. Dizer que o "Ritual de Bama de 30 segundos" é a solução para derreter essa crosta.
           
-          IMPORTANTE: O texto deve ser um único parágrafo fluido e direto.
-          Não use formatação markdown complexa, apenas texto limpo.
+          IMPORTANTE: O texto deve ser extremamente direto, com no máximo 3 frases curtas. Não use formatação markdown complexa.
         `;
 
         const response = await ai.models.generateContent({
@@ -158,16 +156,18 @@ function SalesPage() {
         setTimeout(() => {
           setIsGenerating(false);
           setShowContent(true);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }, 400);
 
       } catch (error) {
         console.error("Erro ao gerar diagnóstico:", error);
         clearTimeout(messageTimer);
-        setDiagnosis(`Olá ${newAnswers.name}, analisamos o seu perfil e identificamos que o Biofilme Adeso está bloqueando o seu intestino. As fibras que você consome estão agindo como cimento nessa crosta. O Ritual de Bama de 30 segundos é o próximo passo ideal para derreter esse bloqueio e devolver o seu ritmo natural.`);
+        setDiagnosis(`Olá ${newAnswers.name}, o Biofilme Adeso está bloqueando o seu intestino e as fibras que consome agem como cimento nessa crosta. O Ritual de Bama de 30 segundos é o próximo passo ideal para derreter esse bloqueio e devolver o seu ritmo natural.`);
         setLoadingMessage('Concluído!');
         setTimeout(() => {
           setIsGenerating(false);
           setShowContent(true);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }, 400);
       }
     }
