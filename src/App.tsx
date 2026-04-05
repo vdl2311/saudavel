@@ -393,7 +393,7 @@ function SalesPage() {
           {showCta && (
             <>
               <div id="cta-wrapper" className="mt-8">
-                <a href="https://pay.hotmart.com/M105084214G" className="btn-buy">
+                <a href="https://pay.hotmart.com/M105084214G?checkoutMode=10" className="btn-buy">
                   QUERO O PROTOCOLO DE BAMA AGORA!
                 </a>
                 <p style={{ fontFamily: 'sans-serif', color: '#666', marginTop: '15px', fontSize: '0.9rem' }}>
@@ -647,7 +647,7 @@ function SalesPage() {
               <li className="flex items-start gap-3"><span className="text-[#16a34a] font-bold">✓</span> Garantia incondicional de 7 dias</li>
             </ul>
 
-            <a href="https://pay.hotmart.com/M105084214G" className="block text-center w-full bg-[#16a34a] text-white no-underline py-5 px-6 rounded-2xl text-[22px] font-black transition-all duration-300 border-b-[6px] border-[#15803d] shadow-xl hover:translate-y-[2px] hover:border-b-[4px]">
+            <a href="https://pay.hotmart.com/M105084214G?checkoutMode=10" className="block text-center w-full bg-[#16a34a] text-white no-underline py-5 px-6 rounded-2xl text-[22px] font-black transition-all duration-300 border-b-[6px] border-[#15803d] shadow-xl hover:translate-y-[2px] hover:border-b-[4px]">
               SIM — QUERO MINHA LEVEZA ANCESTRAL →
             </a>
             
@@ -729,7 +729,7 @@ function SalesPage() {
           <p className="text-[19px] text-[#444] mb-10">
             Os centenários de Bama não fazem nada extraordinário. Eles apenas respeitam o ritmo biológico que a modernidade nos fez esquecer. Em 14 dias, você pode reaprender esse ritmo.
           </p>
-          <a href="https://pay.hotmart.com/M105084214G" className="inline-block w-full bg-[#16a34a] text-white no-underline py-5 px-8 rounded-2xl text-[22px] font-black font-sans transition-all duration-300 border-b-[6px] border-[#15803d] shadow-xl hover:translate-y-[2px] hover:border-b-[4px] mb-4">
+          <a href="https://pay.hotmart.com/M105084214G?checkoutMode=10" className="inline-block w-full bg-[#16a34a] text-white no-underline py-5 px-8 rounded-2xl text-[22px] font-black font-sans transition-all duration-300 border-b-[6px] border-[#15803d] shadow-xl hover:translate-y-[2px] hover:border-b-[4px] mb-4">
             COMEÇAR MEU PROTOCOLO DE 14 DIAS →
           </a>
           <p className="text-[14px] text-gray-500 font-sans font-bold">
@@ -763,7 +763,7 @@ function SalesPage() {
       {/* Sticky CTA */}
       <div className={`fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-[0_-10px_20px_-5px_rgba(0,0,0,0.15)] p-3 md:p-4 z-50 transition-transform duration-300 ${showSticky ? 'translate-y-0' : 'translate-y-full'}`}>
         <div className="max-w-[680px] mx-auto flex flex-col items-center gap-2">
-          <a href="https://pay.hotmart.com/M105084214G" className="w-full bg-[#16a34a] text-white text-center no-underline py-3 px-4 rounded-xl text-[16px] md:text-[18px] font-black font-sans transition-all duration-300 border-b-[4px] border-[#15803d] hover:translate-y-[2px] hover:border-b-[2px] flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2">
+          <a href="https://pay.hotmart.com/M105084214G?checkoutMode=10" className="w-full bg-[#16a34a] text-white text-center no-underline py-3 px-4 rounded-xl text-[16px] md:text-[18px] font-black font-sans transition-all duration-300 border-b-[4px] border-[#15803d] hover:translate-y-[2px] hover:border-b-[2px] flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2">
             <span>SIM — QUERO MINHA LEVEZA ANCESTRAL →</span>
             <span className="bg-white text-[#16a34a] px-2 py-0.5 rounded text-[14px] md:text-[15px] ml-0 md:ml-2">R$ 37,90</span>
           </a>
