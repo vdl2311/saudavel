@@ -13,74 +13,38 @@ import Terms from './Terms';
 
 const questions = [
   {
+    id: 'retention',
+    question: 'Você sente que seu corpo retém mais do que deveria após as refeições?',
+    type: 'choice',
+    options: ['Sim', 'Não']
+  },
+  {
+    id: 'natural_solutions',
+    question: 'Com que frequência você busca soluções naturais para se sentir mais leve?',
+    type: 'choice',
+    options: ['Sempre', 'Raramente']
+  },
+  {
     id: 'age',
-    question: 'Qual é a tua idade?',
+    question: 'Para qual faixa etária devemos ajustar seu protocolo?',
     type: 'choice',
-    options: ['35-45', '46-55', '56-65', '65+']
+    options: ['40-50', '51-60', '60+']
   },
   {
-    id: 'goal',
-    question: 'Qual é o teu principal objetivo hoje?',
+    id: 'symptom',
+    question: 'Qual dessas sensações mais te incomoda hoje?',
     type: 'choice',
-    options: ['Desinchar a barriga', 'Ir ao banheiro regularmente', 'Ter mais energia', 'Perder peso']
-  },
-  {
-    id: 'bloating_morning',
-    question: 'Sentes que a tua barriga "estufa" logo após as primeiras refeições do dia?',
-    type: 'choice',
-    options: ['Sim, quase sempre', 'Às vezes', 'Raramente']
-  },
-  {
-    id: 'frequency',
-    question: 'Com que frequência consegues ir ao banheiro de forma natural?',
-    type: 'choice',
-    options: ['Diariamente', '2 a 3 vezes por semana', 'Menos de 2 vezes por semana']
-  },
-  {
-    id: 'pressure',
-    question: 'Costumas sentir um "peso" ou pressão abdominal, como se houvesse algo preso?',
-    type: 'choice',
-    options: ['Sim, sinto-me pesada', 'Só às vezes', 'Não sinto']
-  },
-  {
-    id: 'fibers_intent',
-    question: 'Costumas comer fibras (aveia, pão integral, saladas) para tentar ajudar o intestino?',
-    type: 'choice',
-    options: ['Sim, foco muito nisso', 'Tento comer, mas não resolve', 'Não costumo comer']
-  },
-  {
-    id: 'fibers_paradox',
-    question: 'Já notaste que, às vezes, comer "saudável" (muitas fibras) parece deixar-te ainda mais inchada?',
-    type: 'choice',
-    options: ['Sim! Exatamente isso', 'Nunca reparei', 'Sinto-me bem com fibras']
-  },
-  {
-    id: 'laxatives_history',
-    question: 'Já utilizaste laxantes ou chás "detox" que pararam de funcionar com o tempo?',
-    type: 'choice',
-    options: ['Sim, o meu corpo habituou-se', 'Raramente uso', 'Nunca usei']
-  },
-  {
-    id: 'energy_morning',
-    question: 'Acordas com disposição ou sentes uma fadiga mental logo pela manhã?',
-    type: 'choice',
-    options: ['Sinto-me exausta', 'Energia moderada', 'Acordo bem']
-  },
-  {
-    id: 'water',
-    question: 'Quanta água bebes por dia?',
-    type: 'choice',
-    options: ['Menos de 1 litro', '1 a 2 litros', 'Mais de 2 litros']
+    options: ['Inchaço', 'Cansaço', 'Peso']
   },
   {
     id: 'commitment',
-    question: 'Se o "Ritual de 30 Segundos" de Bama pudesse limpar esse Biofilme hoje, estarias pronta para começar agora?',
+    question: 'Você está disposta a dedicar 2 minutos por dia a um costume milenar de Bama?',
     type: 'choice',
-    options: ['SIM, ESTOU PRONTA!', 'Talvez mais tarde']
+    options: ['Sim, quero começar!']
   },
   {
     id: 'name',
-    question: 'Qual é o teu primeiro nome?',
+    question: 'Quase lá! Para quem devemos enviar o seu Perfil de Vitalidade personalizado?',
     type: 'text'
   }
 ];
@@ -124,17 +88,11 @@ function SalesPage() {
           Baseado nas seguintes respostas de um quiz, gere um diagnóstico MUITO CURTO, empático e impactante (MÁXIMO DE 3 FRASES CURTAS) sobre o problema de "Biofilme Adeso" no intestino.
           
           Nome: ${newAnswers.name}
-          Idade: ${newAnswers.age}
-          Objetivo: ${newAnswers.goal}
-          Barriga estufa de manhã: ${newAnswers.bloating_morning}
-          Frequência banheiro: ${newAnswers.frequency}
-          Peso/Pressão abdominal: ${newAnswers.pressure}
-          Intenção com fibras: ${newAnswers.fibers_intent}
-          Paradoxo das fibras (inchaço): ${newAnswers.fibers_paradox}
-          Histórico de laxantes: ${newAnswers.laxatives_history}
-          Energia matinal: ${newAnswers.energy_morning}
-          Consumo de água: ${newAnswers.water}
-          Compromisso: ${newAnswers.commitment}
+          Retenção após refeições: ${newAnswers.retention}
+          Busca por soluções naturais: ${newAnswers.natural_solutions}
+          Faixa etária: ${newAnswers.age}
+          Sintoma que mais incomoda: ${newAnswers.symptom}
+          Compromisso com 2 min/dia: ${newAnswers.commitment}
           
           O diagnóstico deve:
           1. Chamar a pessoa pelo nome.
