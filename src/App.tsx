@@ -746,6 +746,9 @@ function SalesPage() {
       {/* Footer */}
       <footer className="bg-[#0f1f33] text-[#4a6278] py-[60px] px-[20px] text-center text-[13px] font-sans">
         <div className="max-w-[680px] mx-auto px-6">
+          <p className="mb-4 font-bold text-[#64748b]">
+            www.protocolodebama.com.br
+          </p>
           <p className="mb-4">
             Isenção de Responsabilidade: Os resultados podem variar e este método não substitui o acompanhamento médico. Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook.
           </p>
