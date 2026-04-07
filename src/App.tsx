@@ -38,7 +38,7 @@ const questions = [
   },
   {
     id: 'commitment',
-    question: 'Você está disposta a dedicar 2 minutos por dia a um costume milenar de Bama?',
+    question: 'Você está disposta a dedicar 30 segundos por dia a um costume milenar de Bama?',
     type: 'choice',
     options: ['Sim, quero começar!']
   },
@@ -92,12 +92,12 @@ function SalesPage() {
           Busca por soluções naturais: ${newAnswers.natural_solutions}
           Faixa etária: ${newAnswers.age}
           Sintoma que mais incomoda: ${newAnswers.symptom}
-          Compromisso com 2 min/dia: ${newAnswers.commitment}
+          Compromisso com 30 seg/dia: ${newAnswers.commitment}
           
           O diagnóstico deve:
           1. Chamar a pessoa pelo nome.
-          2. Explicar que o problema é o "Biofilme Adeso" (uma crosta tóxica) e que as fibras agem como "cimento".
-          3. Dizer que o "Ritual de Bama de 30 segundos" é a solução para derreter essa crosta.
+          2. Explicar como o "Biofilme Adeso" pode ser suavizado através de uma limpeza natural para a recuperação da vitalidade.
+          3. Apresentar o "Ritual de Bama de 30 segundos" como um método para auxiliar no equilíbrio natural e suporte para o seu sistema digestivo.
           
           IMPORTANTE: O texto deve ser extremamente direto, com no máximo 3 frases curtas. Não use formatação markdown complexa.
         `;
@@ -120,7 +120,7 @@ function SalesPage() {
       } catch (error) {
         console.error("Erro ao gerar diagnóstico:", error);
         clearTimeout(messageTimer);
-        setDiagnosis(`Olá ${newAnswers.name}, o Biofilme Adeso está bloqueando o seu intestino e as fibras que consome agem como cimento nessa crosta. O Ritual de Bama de 30 segundos é o próximo passo ideal para derreter esse bloqueio e devolver o seu ritmo natural.`);
+        setDiagnosis(`Olá ${newAnswers.name}, o Biofilme Adeso pode estar afetando o seu bem-estar. O Ritual de Bama de 30 segundos é um método para auxiliar no seu equilíbrio natural, promovendo uma limpeza suave e a recuperação da sua vitalidade.`);
         setLoadingMessage('Concluído!');
         setTimeout(() => {
           setIsGenerating(false);
@@ -457,7 +457,7 @@ function SalesPage() {
         <div className="max-w-[680px] mx-auto px-6">
           <div className="text-center mb-12">
             <p className="text-[#f6c445] font-sans font-bold text-[14px] uppercase tracking-widest mb-2">O que você vai aprender</p>
-            <h2 className="text-[32px] font-extrabold leading-tight">Sete capítulos. Uma transformação completa e definitiva.</h2>
+            <h2 className="text-[32px] font-extrabold leading-tight">Sete capítulos. Um método para auxiliar no seu equilíbrio natural.</h2>
             <p className="text-[#9cb3cc] mt-4 text-[18px]">Cada capítulo termina com um "Resumo de Ação" — passos concretos que você implementa no mesmo dia. Sem teoria sem fim. Sem promessas vazias.</p>
           </div>
 
