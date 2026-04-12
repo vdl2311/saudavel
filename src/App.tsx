@@ -53,7 +53,9 @@ function SalesPage() {
   const [timeLeft, setTimeLeft] = useState(21 * 3600 + 29 * 60 + 57); // 21:29:57 in seconds
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [showSticky, setShowSticky] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(true);
   const [showCta, setShowCta] = useState(true);
+  const videoRef = useRef<HTMLIFrameElement>(null);
 
   // Quiz & AI State
   const [quizStep, setQuizStep] = useState(0);
@@ -125,6 +127,17 @@ function SalesPage() {
         }, 400);
       }
     }
+  };
+
+  const ativarSom = () => {
+    const iframe = videoRef.current;
+    if (iframe) {
+      // Envia comando para o iframe ativar o som (recarrega com muted=false)
+      const currentSrc = iframe.src;
+      iframe.src = currentSrc.replace("muted=true", "muted=false");
+    }
+
+    setShowOverlay(false);
   };
 
 
@@ -303,8 +316,31 @@ function SalesPage() {
                   Se o seu sistema estiver sobrecarregado, o excesso de fibras secas pode acabar gerando mais desconforto em vez de alívio. Entenda como o <span style={{ backgroundColor: '#ffff00', fontWeight: 'bold' }}>"Código de Bama"</span> atua preparando o seu organismo para processar os alimentos de forma eficiente, removendo o que impede o seu bem-estar diário.
                 </p>
                 <h4 style={{ color: '#000', fontSize: '1.3rem', fontWeight: 600, borderTop: '1px dashed #ccc', borderBottom: '1px dashed #ccc', padding: '15px 0' }}>
-                  Menos peso, mais energia e um corpo que obedece aos seus comandos.
+                  Menos peso, mais energia e um corpo que obedece aos seus comandos. <br />
+                  <span style={{ color: '#CC0000' }}>Assista à apresentação e destrave seu corpo.</span>
                 </h4>
+              </div>
+
+              {/* VSL Section */}
+              <div className="vsl-container mb-10" onContextMenu={(e) => e.preventDefault()}>
+                {showOverlay && (
+                  <div id="sound-overlay" onClick={ativarSom}>
+                    <div className="pulse-button">
+                       🔊 CLIQUE PARA OUVIR COM SOM
+                    </div>
+                  </div>
+                )}
+
+                <iframe 
+                  ref={videoRef}
+                  id="bunny-video" 
+                  src="https://iframe.mediadelivery.net/embed/628378/69d7a3d3-ca48-4560-b5b4-bccbe6aff1fc?autoplay=true&muted=true&loop=false&preload=true&controls=false&disableSeeking=true&blockSeeking=true&playsinline=true" 
+                  loading="lazy" 
+                  style={{ border: 0, position: 'absolute', top: 0, height: '100%', width: '100%', zIndex: 1 }} 
+                  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; clipboard-write;" 
+                ></iframe>
+
+                <div id="video-guard" onContextMenu={(e) => e.preventDefault()} onDragStart={(e) => e.preventDefault()} onMouseDown={(e) => e.preventDefault()} onMouseMove={(e) => e.preventDefault()} onMouseUp={(e) => e.preventDefault()} onPointerDown={(e) => e.preventDefault()} onPointerMove={(e) => e.preventDefault()} onPointerUp={(e) => e.preventDefault()} onClick={(e) => e.stopPropagation()} onDoubleClick={(e) => e.stopPropagation()} onTouchStart={(e) => e.preventDefault()} onTouchMove={(e) => e.preventDefault()} onTouchEnd={(e) => e.preventDefault()}></div>
               </div>
 
 
