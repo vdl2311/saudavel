@@ -427,13 +427,13 @@ function SalesPage() {
               </h2>
 
               <p>
-                Este não é um livro de receitas comum. É um manual de recalibragem biológica. Em 7 capítulos práticos, você vai aprender a dissolver o Biofilme e reativar o seu magnetismo de dentro para fora.
+                Este não é um livro de dicas comuns. É um manual de harmonização corporal. Em 7 capítulos práticos, você vai aprender a equilibrar seu corpo e reativar a sua confiança de dentro para fora.
               </p>
 
               <ul className="check-list bg-white p-8 border border-green-500 rounded-lg shadow-sm my-8">
-                <li><strong>O Ritual de 30 Segundos:</strong> A técnica matinal exata para despertar o seu Nervo Vago.</li>
-                <li><strong>O Gel Vassoura:</strong> Como preparar o composto ancestral que "varre" o lodo intestinal.</li>
-                <li><strong>A Linguagem do Corpo:</strong> Como sua nova biologia vai mudar sua voz e seu olhar automaticamente.</li>
+                <li><strong>O Hábito Matinal de Revitalização:</strong> O passo a passo exato para despertar a sua sensação de bem-estar logo cedo.</li>
+                <li><strong>A Fórmula de Suporte Digestivo:</strong> Como preparar o composto ancestral que ajuda a evitar resíduos acumulados e trazer leveza.</li>
+                <li><strong>A Linguagem do Corpo:</strong> Como sua nova disposição vai se refletir em sua presença e olhar naturalmente e sem esforço.</li>
               </ul>
 
               <div className="text-center my-12">
