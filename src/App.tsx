@@ -6,57 +6,57 @@ import Terms from './Terms';
 
 const questions = [
   {
-    id: 'routine_wear',
-    question: 'Como você descreveria o impacto da rotina diária no seu relacionamento hoje?',
+    id: 'q1_balance',
+    question: 'Como você descreveria a busca por equilíbrio na sua rotina atual?',
     options: [
-      'Temos uma convivência harmoniosa e conseguimos equilibrar tudo.',
-      'Percebo que o cansaço e o excesso de estresse nos distanciam em alguns dias.',
-      'Sinto que o desgaste tomou conta e muitas vezes vivemos no "piloto automático".'
+      'Consigo manter uma rotina harmoniosa e equilibrada.',
+      'Busco formas de lidar melhor com o ritmo intenso do dia a dia.',
+      'Sinto que é o momento de priorizar minha energia e bem-estar.'
     ]
   },
   {
-    id: 'mutual_admiration',
-    question: 'Quando vocês conversam ou estão juntos, como você avalia o nível de admiração e troca entre vocês?',
+    id: 'q2_interaction',
+    question: 'Ao interagir com as pessoas próximas, qual aspecto você mais deseja fortalecer?',
     options: [
-      'Nossa conexão flui bem e aproveitamos o tempo.',
-      'Ainda existe, mas é frequentemente abafada pelas tensões de casa.',
-      'Sinto muita falta dos momentos em que nos admirávamos genuinamente, sem a pressão do dia a dia.'
+      'Desejo manter a conexão positiva que já cultivamos.',
+      'Gostaria de ter mais disposição para momentos de qualidade.',
+      'Busco resgatar a admiração e a troca genuína no cotidiano.'
     ]
   },
   {
-    id: 'conflict_frequency',
-    question: 'Com que frequência os compromissos diários e o cansaço acabam gerando uma sensação de atrito ou distanciamento no casal?',
+    id: 'q3_energy',
+    question: 'Com que frequência você busca renovar suas energias para evitar o desgaste da semana?',
     options: [
-      'Raramente, lidamos bem com a pressão em dupla.',
-      'Às vezes, dependendo do que enfrentamos na semana.',
-      'Quase sempre; parece que o peso da semana está sugando nossa energia para estarmos juntos.'
+      'Regularmente, priorizo meus momentos de pausa.',
+      'Às vezes, sinto que preciso de ferramentas melhores para relaxar.',
+      'Frequentemente sinto que o peso da rotina exige um novo método de cuidado.'
     ]
   },
   {
-    id: 'intimacy_thermometer',
-    question: 'Como está o conforto para momentos a dois, seja uma conversa tranquila ou tempo de qualidade?',
+    id: 'q4_tranquility',
+    question: 'Qual é a sua facilidade em cultivar momentos de tranquilidade e presença?',
     options: [
-      'Temos facilidade em cultivar nossos momentos e a nossa intimidade.',
-      'A exaustão tem nos feito adiar esses momentos.',
-      'Sinto que existe um certo distanciamento e dificuldade na convivência.'
+      'Tenho facilidade em criar pausas revigorantes.',
+      'O ritmo acelerado tem me feito adiar esses momentos de cuidado.',
+      'Busco aprender técnicas que facilitem essa reconexão diária.'
     ]
   },
   {
-    id: 'longevity_expectation',
-    question: 'Pensando na longevidade da sua relação, qual é a sua principal busca nesse momento?',
+    id: 'q5_longevity',
+    question: 'Pensando na sua longevidade e bem-estar, qual é o seu foco principal agora?',
     options: [
-      'Apenas preservar o que construímos.',
-      'Resgatar a conexão e a energia que foram sendo minadas com o tempo.',
-      'Aprender algo comprovado que elimine o desgaste da nossa convivência e traga uma vida mais harmoniosa.'
+      'Preservar minha saúde e os resultados que já conquistei.',
+      'Encontrar formas naturais de elevar minha vitalidade e disposição.',
+      'Adotar um método comprovado que traga mais harmonia física e mental.'
     ]
   },
   {
-    id: 'previous_attempts',
-    question: 'Você já sentiu que simples "dicas de relacionamento" ou conversas exaustivas não resolvem problemas de estresse?',
+    id: 'q6_mindbody',
+    question: 'Você acredita que o equilíbrio entre corpo e mente é a chave para uma vida mais leve?',
     options: [
-      'Sim, as tentativas comuns costumam ser temporárias.',
-      'Já tentei mudar a forma de agir, mas foi difícil manter a constância.',
-      'Nunca busquei métodos profundos baseados em harmonia física e mental para ajudar na relação.'
+      'Sim, acredito que métodos integrativos trazem resultados duradouros.',
+      'Estou aberto a descobrir como o sistema nervoso influencia meu bem-estar.',
+      'Busco soluções que vão além do comum para transformar minha rotina.'
     ]
   }
 ];
@@ -165,10 +165,10 @@ function SalesPage() {
           {!quizStarted ? (
             <div className="text-center bg-white p-8 md:p-12 border-4 border-gray-200 rounded-xl shadow-xl">
               <h1 className="text-3xl md:text-5xl font-serif font-black text-cb-red leading-tight mb-6">
-                Descubra o que está bloqueando seu magnetismo
+                Descubra Novos Caminhos para sua Vitalidade e Conexão
               </h1>
               <p className="text-xl md:text-2xl text-gray-800 font-bold mb-8">
-                Responda a 6 perguntas rápidas e veja se o seu Nervo Vago está operando em modo de 'Sobrecarga' ou 'Brilho'.
+                Responda a 6 perguntas rápidas e entenda como o equilíbrio do seu sistema nervoso pode elevar sua energia e harmonia diária.
               </p>
               
               <button
@@ -299,15 +299,15 @@ function SalesPage() {
           <section className="pt-10 pb-8 px-4 bg-white">
             <div className="container-custom text-center">
               <h1 className="text-4xl md:text-6xl font-serif font-black text-cb-red leading-tight mb-4">
-                O Código da Convivência Harmoniosa: O Segredo de Bama Para Resgatar a Admiração Mútua
+                O Segredo de Bama: Como Casais Centenários Mantêm a Admiração e a Vitalidade por Décadas
               </h1>
               <h2 className="text-2xl md:text-3xl font-bold text-black mb-8">
-                Descubra como os princípios dessa vila isolada podem ajudar a eliminar o desgaste da rotina e <span className="highlight-yellow">renovar o seu relacionamento</span>.
+                Descubra os hábitos de convivência e bem-estar de uma das vilas mais longevas do mundo para renovar a conexão e a leveza no seu relacionamento.
               </h2>
               
               <div className="mt-10">
                 <a href="https://pay.hotmart.com/L105426143X?checkoutMode=10" className="btn-cta-cb text-2xl py-6">
-                  SIM! QUERO APLICAR O PROTOCOLO DE BAMA NA MINHA ROTINA
+                  QUERO CONHECER O PROTOCOLO DE BAMA
                 </a>
                 <img src="https://cdn.clickbank.net/custom/images/trust_seals/secure_checkout.png" alt="Secure Checkout" className="mx-auto mt-4 h-12 opacity-50 grayscale" />
               </div>
@@ -319,100 +319,62 @@ function SalesPage() {
             <div className="container-custom text-lg md:text-xl leading-relaxed space-y-8">
               
               <h2 className="text-3xl md:text-4xl font-serif font-black text-black text-center mb-10">
-                A Busca Pela Convivência Harmoniosa
+                O Resgate da Admiração Mútua
               </h2>
 
               <p>
-                Muitas vezes, a rotina corrida pode gerar uma sensação de desgaste dentro de casa. Fica parecendo que há um obstáculo limitando a forma de aproveitar as relações diárias e o tempo a dois.
+                Muitas vezes, o desgaste da rotina e o acúmulo de tensões diárias acabam esfriando a admiração entre o casal. Parece que a pressa do dia a dia deixa pouco espaço para a paciência, o olhar atento e os momentos de verdadeira conexão a dois.
               </p>
               <p>
-                Ainda que exista o desejo por um dia a dia mais tranquilo, focado no amor e conexões mais profundas, a sobrecarga de tarefas muitas vezes toma a frente, esfriando a admiração mútua.
-              </p>
-
-              <ul className="pain-list bg-white p-8 border border-gray-200 rounded-lg shadow-sm">
-                <li>O acúmulo de tensões diárias, que impacta na sensação de vitalidade ao final do dia.</li>
-                <li>A busca constante por resgatar a autoconfiança de quando a vida parecia fluir em um ritmo mais calmo.</li>
-                <li>A vontade de cuidar melhor do próprio corpo e mente, estimulando tudo de positivo que já existe dentro de cada pessoa.</li>
-              </ul>
-
-              <p className="text-center font-bold text-2xl mt-8">
-                Lidar com essas demandas é comum. <span className="highlight-yellow">É um reflexo natural do estresse contemporâneo.</span>
+                É comum sentir que a falta de disposição individual reflete diretamente na harmonia da casa. Quando não nos sentimos bem com nossa própria vitalidade, torna-se mais difícil cultivar a leveza necessária para um relacionamento duradouro.
               </p>
 
               <hr className="my-12 border-gray-300" />
 
               <h2 className="text-3xl md:text-4xl font-serif font-black text-cb-red text-center mb-8">
-                O Código Oculto da Vila de Bama
+                A Sabedoria dos Casais de Bama
               </h2>
 
               <p>
-                No topo das montanhas da China, na isolada Vila de Bama em Guangxi, existe um segredo para a longevidade que vai muito além da alimentação. Trata-se do verdadeiro código da convivência harmoniosa.
+                No topo das montanhas, na isolada Vila de Bama, pesquisadores encontraram algo que vai além da longevidade física: o verdadeiro código da convivência harmoniosa. Lá, casais centenários vivem com uma energia e uma cumplicidade que parecem imunes ao tempo.
               </p>
 
               <p>
-                Enquanto em centros urbanos muitas vezes o estresse dita a vitalidade do casal, os habitantes de Bama exibem uma atenção aos cuidados que promovem o amor duradouro, um olhar muito mais humano e uma sensação de energia positiva no ambiente de forma muito natural.
-              </p>
-
-              <p>
-                O que pesquisadores relatam sobre os relacionamentos dessa cultura é o grande foco no equilíbrio.
-              </p>
-
-              <p>
-                No estilo de vida de Bama, o conforto nas relações parece ser constante. Por quê? Porque muito dessa cultura está atrelada à adoção de atitudes biológicas e sociais voltadas para o próprio autocuidado, algo que a pressa ocidental deixou de lado.
-              </p>
-
-              <p>
-                Isso não se resume a buscar fórmulas mágicas, mas em encontrar a harmonia biológica básica — um ciclo saudável de um organismo funcionando confortavelmente — que naturalmente ajuda na autoconfiança.
-              </p>
-
-              <p>
-                O foco consiste na busca pelo distanciamento do excesso de estresse diário. Ao adotar hábitos mais serenos, todo o semblante responde de forma favorável, deixando de transparecer aquela tensão e exaustão que pesam no dia a dia.
-              </p>
-
-              <p>
-                Acredita-se que as tradições dessa região usem <strong>pequenos hábitos matinais diários</strong> para ajudar a preservar e cultivar essa mesma harmonia corporal. É como limpar uma lente: a cor verdadeira do ambiente volta a ficar evidente.
-              </p>
-
-              <p>
-                O foco em hábitos de bem-estar saudáveis apoia diariamente o objetivo de se sentir bem com o próprio reflexo, promovendo assim mais interações e conexões muito mais leves.
+                O segredo desses relacionamentos está no equilíbrio biológico e social. Eles cultivam pequenos hábitos diários de autocuidado que preservam a serenidade e a autoconfiança. Ao cuidar da harmonia interna, o semblante responde de forma favorável, permitindo interações muito mais leves e magnéticas.
               </p>
 
               <hr className="my-12 border-gray-300" />
 
               <h2 className="text-3xl md:text-4xl font-serif font-black text-cb-red text-center mb-8">
-                O Impacto do Acúmulo de Tensões e Impurezas
+                O Impacto do Bem-Estar na Relação
               </h2>
 
               <p>
-                Com o passar do tempo, nosso corpo pode acumular resíduos e tensões invisíveis, que dificultam o funcionamento ideal do nosso equilíbrio biológico.
+                Quando priorizamos o equilíbrio do nosso organismo, os benefícios transbordam para quem amamos:
               </p>
 
               <div className="bg-white p-8 border-l-8 border-cb-red shadow-md my-8">
-                <ul className="pain-list">
-                  <li><strong>Dificulta a vitalidade natural</strong>, afetando a aparência descansada da pele e a sensação de renovação.</li>
-                  <li><strong>Desequilibra as emoções</strong>, limitando a sensação de alegria, presença e leveza no dia a dia.</li>
-                  <li><strong>Sobrecarrega o bem-estar</strong>, abafando aquela confiança natural e a linguagem corporal magnética.</li>
+                <ul className="pain-list space-y-4">
+                  <li><strong>Presença e Alegria:</strong> Uma disposição renovada permite aproveitar melhor o tempo juntos.</li>
+                  <li><strong>Leveza no Olhar:</strong> O autocuidado ajuda a reduzir a tensão que muitas vezes gera conflitos desnecessários.</li>
+                  <li><strong>Confiança Natural:</strong> Sentir-se bem consigo mesma é o primeiro passo para resgatar o magnetismo no relacionamento.</li>
                 </ul>
               </div>
-
-              <p className="text-center text-2xl font-bold">
-                As pessoas ao redor não veem esse desgaste. <strong className="text-cb-red">Mas elas sentem.</strong>
-              </p>
 
               <hr className="my-12 border-gray-300" />
 
               <h2 className="text-3xl md:text-4xl font-serif font-black text-black text-center mb-8">
-                A Solução: O Protocolo de Bama Para Casais
+                O Protocolo de Bama Para Casais
               </h2>
 
               <p>
-                Este não é um livro de dicas comuns. É um manual de harmonização da rotina. Em 7 capítulos práticos, você vai aprender a equilibrar seu ambiente e cultivar a admiração de dentro para fora.
+                Este manual prático de harmonização da rotina ensina você a equilibrar seu ambiente e cultivar a admiração de dentro para fora.
               </p>
 
-              <ul className="check-list bg-white p-8 border border-green-500 rounded-lg shadow-sm my-8">
-                <li><strong>O Hábito Matinal de Revitalização:</strong> O passo a passo exato para despertar a sua sensação de bem-estar logo cedo.</li>
-                <li><strong>A Fórmula de Suporte Digestivo:</strong> Como preparar o composto ancestral que ajuda a evitar resíduos acumulados e trazer leveza.</li>
-                <li><strong>A Linguagem do Corpo:</strong> Como sua nova disposição vai se refletir em sua presença e olhar naturalmente e sem esforço.</li>
+              <ul className="check-list bg-white p-8 border border-green-500 rounded-lg shadow-sm my-8 space-y-4">
+                <li><strong>O Ritual Matinal de Conexão:</strong> Como despertar sua sensação de bem-estar para começar o dia com mais paciência e disposição.</li>
+                <li><strong>Suporte à Vitalidade Natural:</strong> Hábitos ancestrais que favorecem o conforto do organismo e a leveza do corpo.</li>
+                <li><strong>A Linguagem da Convivência:</strong> Como sua nova energia vai se refletir naturalmente na sua presença e no seu relacionamento.</li>
               </ul>
 
               <div className="text-center my-12">
@@ -424,26 +386,14 @@ function SalesPage() {
               <hr className="my-12 border-gray-300" />
 
               <h2 className="text-3xl md:text-4xl font-serif font-black text-black text-center mb-8">
-                Histórias Reais de Quem Transformou Sua Rotina
+                Histórias de Quem Transformou a Rotina
               </h2>
 
               <div className="space-y-6">
                 <div className="bg-white p-6 border border-gray-200 rounded-lg shadow-sm">
                   <div className="flex items-center gap-2 mb-3 text-yellow-500 text-2xl">★★★★★</div>
-                  <p className="italic text-gray-700 mb-4">"Eu achava que meu relacionamento estava esfriando e já não tinha a mesma paciência. Depois que passei a aplicar o ritual, acordei com uma leveza que há muito tempo não sentia. Meu parceiro notou na hora e a nossa conexão melhorou muito!"</p>
+                  <p className="italic text-gray-700 mb-4">"Eu achava que meu relacionamento estava esfriando pela rotina. Depois que passei a aplicar os hábitos de Bama, acordei com uma leveza que há muito tempo não sentia. Meu parceiro notou a mudança na minha disposição e nossa conexão melhorou muito!"</p>
                   <p className="font-bold text-black">— Márcia T.</p>
-                </div>
-
-                <div className="bg-white p-6 border border-gray-200 rounded-lg shadow-sm">
-                  <div className="flex items-center gap-2 mb-3 text-yellow-500 text-2xl">★★★★★</div>
-                  <p className="italic text-gray-700 mb-4">"Aquela sensação de cansaço extremo que me acompanhava o dia todo diminuiu demais. Sinto-me muito mais disposta, atraente e dona de mim novamente. Uma mudança que trouxe minha autoconfiança de volta."</p>
-                  <p className="font-bold text-black">— Helena R.</p>
-                </div>
-
-                <div className="bg-white p-6 border border-gray-200 rounded-lg shadow-sm">
-                  <div className="flex items-center gap-2 mb-3 text-yellow-500 text-2xl">★★★★★</div>
-                  <p className="italic text-gray-700 mb-4">"Eu já não sabia mais o que fazer para melhorar meu humor e minha presença. Focar na limpeza interna e no equilíbrio foi a melhor decisão que tomei. Indico para todas as mulheres que querem recuperar seu brilho."</p>
-                  <p className="font-bold text-black">— Silvia M.</p>
                 </div>
               </div>
 
@@ -477,9 +427,9 @@ function SalesPage() {
                   <span className="text-sm font-bold text-black uppercase tracking-widest mt-1">Dias</span>
                 </div>
                 <div>
-                  <h2 className="text-3xl font-black text-black mb-4">Garantia Incondicional de 7 Dias</h2>
+                  <h2 className="text-3xl font-black text-black mb-4">Experiência de 7 Dias</h2>
                   <p className="text-xl">
-                    Eu confio tanto no Protocolo de Bama que eu tiro todo o risco das suas costas. Aplique o método por 7 dias. Se você não sentir seu corpo mais leve, sua mente mais clara e seu magnetismo voltando… Eu devolvo 100% do seu dinheiro, sem perguntas e sem burocracia.
+                    Explore o Protocolo de Bama e sinta os benefícios na sua rotina. Se em uma semana você não perceber uma melhora na sua sensação de bem-estar e na harmonia do seu dia a dia, devolvemos 100% do seu investimento.
                   </p>
                 </div>
               </div>
@@ -490,7 +440,7 @@ function SalesPage() {
                 <p className="text-6xl md:text-8xl font-black text-cb-red mb-8">R$ 37,90</p>
                 
                 <a href="https://pay.hotmart.com/L105426143X?checkoutMode=10" className="btn-cta-cb text-2xl py-6">
-                  SIM! QUERO DESBLOQUEAR MEU MAGNETISMO &raquo;
+                  SIM! QUERO ACESSAR O PROTOCOLO &raquo;
                 </a>
                 <p className="mt-4 font-bold text-gray-600">Pagamento Único. Acesso Imediato.</p>
               </div>
@@ -501,10 +451,10 @@ function SalesPage() {
               </h2>
               <div className="space-y-4">
                 {[
-                  { q: "O protocolo é difícil de seguir?", a: "Não. Ele foi desenhado para mulheres modernas e ocupadas, focado em pequenos ajustes matinais." },
-                  { q: "Preciso comprar suplementos caros?", a: "Não. Todos os ingredientes são naturais e encontrados em qualquer supermercado ou feira." },
-                  { q: "Em quanto tempo vejo resultados?", a: "Muitas mulheres relatam uma sensação de leveza e clareza mental pouco tempo após mudarem seus hábitos diários, mas vale lembrar que cada corpo responde no seu próprio ritmo." },
-                  { q: "Como recebo o material?", a: "Imediatamente após a confirmação do pagamento, você recebe um e-mail com o link para baixar o e-book e todos os bônus." }
+                  { q: "O protocolo é difícil de seguir?", a: "Não. Ele foi desenhado para rotinas modernas e ocupadas, focado em pequenos ajustes diários." },
+                  { q: "Preciso comprar suplementos caros?", a: "Não. É totalmente focado em ações simples e em um estilo de vida natural." },
+                  { q: "Em quanto tempo vejo resultados?", a: "A melhoria da harmonia na convivência e da própria disposição muitas vezes se inicia logo nos primeiros dias de mudança, mas vale lembrar que cada organismo e cada relacionamento reage no próprio ritmo." },
+                  { q: "Como recebo o material?", a: "Imediatamente após a confirmação do pagamento, você recebe um e-mail especial com o link para baixar o manual completo e seus bônus." }
                 ].map((item, i) => (
                   <div key={i} className="bg-white border-2 border-gray-200 rounded-lg overflow-hidden">
                     <button 
@@ -535,7 +485,7 @@ function SalesPage() {
             Protocolo de Bama
           </p>
           <p className="mb-6 leading-relaxed">
-            Isenção de Responsabilidade: Os resultados podem variar e este método não substitui o acompanhamento médico. Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. A Hotmart é a plataforma de pagamentos e não endossa as declarações ou promessas deste produto.
+            Isenção de Responsabilidade: Este conteúdo promove hábitos de estilo de vida e bem-estar inspirados em culturas longevas. Não substitui aconselhamento médico, psicológico ou terapias de casal. Os resultados podem variar entre indivíduos. Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. A Hotmart é a plataforma de pagamentos e não endossa as declarações ou promessas deste produto.
           </p>
           <div className="flex justify-center gap-6 font-bold uppercase tracking-widest">
             <Link to="/privacidade" className="hover:text-white transition-colors">Privacidade</Link>
@@ -550,7 +500,7 @@ function SalesPage() {
         <div className="fixed bottom-0 left-0 w-full bg-white border-t-4 border-cb-red p-4 z-50 shadow-[0_-10px_20px_rgba(0,0,0,0.1)]">
           <div className="max-w-[800px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="text-center md:text-left">
-              <p className="font-black text-xl text-black">Desbloqueie Seu Magnetismo Hoje!</p>
+              <p className="font-black text-xl text-black">Acesse o Protocolo de Bama</p>
               <p className="text-cb-red font-bold">Apenas R$ 37,90</p>
             </div>
             <a href="https://pay.hotmart.com/L105426143X?checkoutMode=10" className="btn-cta-cb m-0 py-4 px-8 text-xl w-full md:w-auto">
