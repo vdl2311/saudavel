@@ -395,6 +395,18 @@ function SalesPage() {
                   <p className="italic text-gray-700 mb-4">"Eu achava que meu relacionamento estava esfriando pela rotina. Depois que passei a aplicar os hábitos de Bama, acordei com uma leveza que há muito tempo não sentia. Meu parceiro notou a mudança na minha disposição e nossa conexão melhorou muito!"</p>
                   <p className="font-bold text-black">— Márcia T.</p>
                 </div>
+
+                <div className="bg-white p-6 border border-gray-200 rounded-lg shadow-sm">
+                  <div className="flex items-center gap-2 mb-3 text-yellow-500 text-2xl">★★★★★</div>
+                  <p className="italic text-gray-700 mb-4">"Nossa rotina estava quase no piloto automático, parecia que não tínhamos tempo de qualidade para o casal. Essas práticas me ajudaram a cultivar pequenos momentos de presença e autocuidado. A diferença na paz do nosso ambiente foi notável, as conversas fluem de forma bem mais serena."</p>
+                  <p className="font-bold text-black">— Fernanda C.</p>
+                </div>
+
+                <div className="bg-white p-6 border border-gray-200 rounded-lg shadow-sm">
+                  <div className="flex items-center gap-2 mb-3 text-yellow-500 text-2xl">★★★★★</div>
+                  <p className="italic text-gray-700 mb-4">"Sempre achei que o nível de responsabilidades em casa justificasse o nosso distanciamento. Ao colocar em prática essa nova visão de equilíbrio, percebi como simples ajustes mudam completamente a energia. Voltei a me sentir com vitalidade, mais próxima e parceira pra toda hora."</p>
+                  <p className="font-bold text-black">— Beatriz L.</p>
+                </div>
               </div>
 
               <div className="text-center my-12">
