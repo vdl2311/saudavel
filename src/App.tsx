@@ -6,57 +6,57 @@ import Terms from './Terms';
 
 const questions = [
   {
-    id: 'q1_balance',
-    question: 'Como você descreveria a busca por equilíbrio na sua rotina atual?',
+    id: 'q1_vitality',
+    question: 'Ao acordar e iniciar sua rotina, como você costuma descrever a sua energia física e disposição?',
     options: [
-      'Consigo manter uma rotina harmoniosa e equilibrada.',
-      'Busco formas de lidar melhor com o ritmo intenso do dia a dia.',
-      'Sinto que é o momento de priorizar minha energia e bem-estar.'
+      'Sinto-me radiante, leve e pronta para interagir com o mundo.',
+      'Demoro a "pegar no tranco", mas me recupero ao longo do dia.',
+      'Acordo me sentindo "pesada" ou sem a energia que gostaria de ter.'
     ]
   },
   {
-    id: 'q2_interaction',
-    question: 'Ao interagir com as pessoas próximas, qual aspecto você mais deseja fortalecer?',
+    id: 'q2_reactivity',
+    question: 'Em situações normais ou de pequeno atrito no relacionamento, qual é a sua reação mais comum ultimamente?',
     options: [
-      'Desejo manter a conexão positiva que já cultivamos.',
-      'Gostaria de ter mais disposição para momentos de qualidade.',
-      'Busco resgatar a admiração e a troca genuína no cotidiano.'
+      'Consigo manter a calma, falar baixo e até sorrir com leveza.',
+      'Tento me segurar, mas às vezes o meu tom de voz entrega a tensão.',
+      'Sinto minha paciência esgotar rápido e acabo agindo na defensiva.'
     ]
   },
   {
-    id: 'q3_energy',
-    question: 'Com que frequência você busca renovar suas energias para evitar o desgaste da semana?',
+    id: 'q3_confidence',
+    question: 'Como você avalia a sua conexão com o próprio reflexo (autoconfiança e atitude de atração)?',
     options: [
-      'Regularmente, priorizo meus momentos de pausa.',
-      'Às vezes, sinto que preciso de ferramentas melhores para relaxar.',
-      'Frequentemente sinto que o peso da rotina exige um novo método de cuidado.'
+      'Sinto-me extremamente confortável, presente e dona do meu espaço.',
+      'Depende muito do dia. Às vezes flui, às vezes sinto um bloqueio.',
+      'Geralmente prefiro "me esconder" ou sinto que falta uma faísca ou o antigo viço.'
     ]
   },
   {
-    id: 'q4_tranquility',
-    question: 'Qual é a sua facilidade em cultivar momentos de tranquilidade e presença?',
+    id: 'q4_aura',
+    question: 'Se as pessoas ao seu redor (e seu parceiro) pudessem descrever a "vibe" que você transmite ultimamente, o que eles diriam?',
     options: [
-      'Tenho facilidade em criar pausas revigorantes.',
-      'O ritmo acelerado tem me feito adiar esses momentos de cuidado.',
-      'Busco aprender técnicas que facilitem essa reconexão diária.'
+      'Alegre, ela exala tranquilidade e tem uma presença acolhedora.',
+      'Ela é super dedicada, mas parece estar sempre focada e preocupada.',
+      'Ela parece estar esgotada ou carregando o peso da rotina.'
     ]
   },
   {
-    id: 'q5_longevity',
-    question: 'Pensando na sua longevidade e bem-estar, qual é o seu foco principal agora?',
+    id: 'q5_mirror',
+    question: 'Quando você repousa após um longo dia e se observa, qual característica parece mais evidente no momento?',
     options: [
-      'Preservar minha saúde e os resultados que já conquistei.',
-      'Encontrar formas naturais de elevar minha vitalidade e disposição.',
-      'Adotar um método comprovado que traga mais harmonia física e mental.'
+      'Um brilho natural e o olhar calmo.',
+      'O cansaço normal de quem cuida de mil coisas ao mesmo tempo.',
+      'Sinais de tensão acumulada e a sensação de que há muito ruído na mente.'
     ]
   },
   {
-    id: 'q6_mindbody',
-    question: 'Você acredita que o equilíbrio entre corpo e mente é a chave para uma vida mais leve?',
+    id: 'q6_solution',
+    question: 'Na sua visão, o que mais bloqueia a vitalidade feminina e a manutenção de uma conexão apaixonada a longo prazo?',
     options: [
-      'Sim, acredito que métodos integrativos trazem resultados duradouros.',
-      'Estou aberto a descobrir como o sistema nervoso influencia meu bem-estar.',
-      'Busco soluções que vão além do comum para transformar minha rotina.'
+      'A falta de química inicial ou problemas exclusivos de personalidade.',
+      'A extrema falta de tempo devido ao excesso de trabalho de ambos.',
+      'O esgotamento fisiológico e emocional que trava nossa atração natural.'
     ]
   }
 ];
