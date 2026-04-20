@@ -165,10 +165,10 @@ function SalesPage() {
           {!quizStarted ? (
             <div className="text-center bg-white p-8 md:p-12 border-4 border-gray-200 rounded-xl shadow-xl">
               <h1 className="text-3xl md:text-5xl font-serif font-black text-cb-red leading-tight mb-6">
-                Descubra Novos Caminhos para sua Vitalidade e Conexão
+                Descubra Qual é o Seu Nível de "Magnetismo Natural"
               </h1>
               <p className="text-xl md:text-2xl text-gray-800 font-bold mb-8">
-                Responda a 6 perguntas rápidas e entenda como o equilíbrio do seu sistema nervoso pode elevar sua energia e harmonia diária.
+                Responda a 6 perguntas rápidas e descubra como o estado do seu equilíbrio biológico está influenciando sua energia, sua autoconfiança e a sintonia do seu relacionamento.
               </p>
               
               <button
@@ -270,16 +270,16 @@ function SalesPage() {
             
             <div className="text-left text-xl space-y-6 mb-10 bg-yellow-50 p-6 border-l-4 border-yellow-400">
               <p>
-                <strong>{userName || 'Você'}</strong>, o cruzamento das suas respostas confirmou a verdadeira causa raiz.
+                <strong>{userName || 'Você'}</strong>, o cruzamento das suas respostas apontou um processo silencioso acontecendo no seu corpo.
               </p>
               <p>
-                O seu sistema indicou <strong>{diagnosis.impact || "o efeito do acúmulo de tensão diária"}</strong>.
+                O seu sistema indicou uma sobrecarga. Isso causa uma tensão invisível capaz de <strong>{diagnosis.impact || "afastar o seu parceiro sem que você perceba"}</strong>.
               </p>
               <p>
-                A boa notícia é que você não precisa de mais cobranças, discussões desgastantes ou terapias intermináveis. O que você precisa é agir na base da sua convivência.
+                A boa notícia é que isso não é sua culpa. E você não precisa de mais cobranças, discussões desgastantes ou mudar quem você é. Você só precisa <strong>recalibrar</strong> o seu canal de atração natural.
               </p>
               <p className="font-bold text-cb-red">
-                Preparamos uma apresentação urgente que revela como você pode começar a reverter isso ainda hoje aplicando pequenos hábitos de harmonia.
+                Preparamos uma apresentação para você aprender com urgência como restaurar essa "Frequência Biológica de Paz" e resgatar a admiração na sua casa.
               </p>
             </div>
 
@@ -299,10 +299,10 @@ function SalesPage() {
           <section className="pt-10 pb-8 px-4 bg-white">
             <div className="container-custom text-center">
               <h1 className="text-4xl md:text-6xl font-serif font-black text-cb-red leading-tight mb-4">
-                O Segredo de Bama: Como Casais Centenários Mantêm a Admiração e a Vitalidade por Décadas
+                O Segredo de Bama: O Código Biológico Que Desperta Seu "Magnetismo Natural" e a Confiança Que Atrai
               </h1>
               <h2 className="text-2xl md:text-3xl font-bold text-black mb-8">
-                Descubra os hábitos de convivência e bem-estar de uma das vilas mais longevas do mundo para renovar a conexão e a leveza no seu relacionamento.
+                Descubra por que as mulheres de uma vila centenária conseguem manter uma vida e uma conexão apaixonante por décadas, ativando um simples "Interruptor de Calma" no corpo.
               </h2>
               
               <div className="mt-10">
@@ -319,62 +319,76 @@ function SalesPage() {
             <div className="container-custom text-lg md:text-xl leading-relaxed space-y-8">
               
               <h2 className="text-3xl md:text-4xl font-serif font-black text-black text-center mb-10">
-                O Resgate da Admiração Mútua
+                A "Parede Invisível": Por Que a Conexão Esfria Mesmo Havendo Amor?
               </h2>
 
               <p>
-                Muitas vezes, o desgaste da rotina e o acúmulo de tensões diárias acabam esfriando a admiração entre o casal. Parece que a pressa do dia a dia deixa pouco espaço para a paciência, o olhar atento e os momentos de verdadeira conexão a dois.
+                Muitas vezes, a rotina corrida e o acúmulo de tensões diárias começam a causar um efeito invisível na mulher que vai muito além do cansaço. A pressa do dia a dia drena a energia vital e deixa pouco espaço para a paciência, o olhar atento e a conexão genuína.
               </p>
               <p>
-                É comum sentir que a falta de disposição individual reflete diretamente na harmonia da casa. Quando não nos sentimos bem com nossa própria vitalidade, torna-se mais difícil cultivar a leveza necessária para um relacionamento duradouro.
+                É comum sentir que a falta de disposição individual reflete diretamente na harmonia da casa. Quando nosso sistema interno está sobrecarregado (seja por estresse, alimentação moderna ou inflamação celular), nós emitimos um <strong>Sinal de Alerta</strong> biológico constante.
+              </p>
+              <p className="font-bold">
+                E o seu parceiro percebe isso. Ele não sabe explicar, mas ele reage à sua "Aura" sobrecarregada, e instintivamente, uma parede de distanciamento se forma.
               </p>
 
               <hr className="my-12 border-gray-300" />
 
               <h2 className="text-3xl md:text-4xl font-serif font-black text-cb-red text-center mb-8">
-                A Sabedoria dos Casais de Bama
+                O Resgate da "Reatração": O Segredo da Vila de Bama
               </h2>
 
               <p>
-                No topo das montanhas, na isolada Vila de Bama, China, pesquisadores encontraram algo que vai além da longevidade física: o verdadeiro código da convivência harmoniosa. Lá, casais centenários vivem com uma energia e uma cumplicidade que parecem imunes ao tempo.
+                No topo das montanhas, na isolada Vila de Bama, China, pesquisadores encontraram algo que vai além da longevidade física: o verdadeiro código do <strong>Magnetismo Natural</strong>. Lá, matriarcas centenárias mantêm casamentos sólidos e uma presença hipnotizante por décadas.
               </p>
 
               <p>
-                O segredo desses relacionamentos está no equilíbrio biológico e social. Eles cultivam pequenos hábitos diários de autocuidado que preservam a serenidade e a autoconfiança. Ao cuidar da harmonia interna, o semblante responde de forma favorável, permitindo interações muito mais leves e magnéticas.
+                O segredo não está na maquiagem ou em discussões infinitas e cansativas de relacionamento. O segredo delas está no <strong>Equilíbrio Fisiológico</strong>.
+              </p>
+              
+              <p>
+                Elas cultivam rituais de limpeza matinal que estimulam ativamente o "Nervo Vago" (conhecido pelos cientistas ocidentais como o canal central da conexão no corpo e a base biológica de se estar atraente e relaxada).
+              </p>
+
+              <p>
+                Ao cuidar da harmonia interna através desses rituais de 30 segundos, o corpo para de lutar contra si mesmo e a tensão vira paz. O semblante abandona a rigidez de "toda mulher guerreira e exausta" e passa a emitir uma Aura Magnética de tranquilidade, receptividade e beleza de dentro pra fora.
               </p>
 
               <hr className="my-12 border-gray-300" />
 
               <h2 className="text-3xl md:text-4xl font-serif font-black text-cb-red text-center mb-8">
-                O Impacto do Bem-Estar na Relação
+                O Efeito Biológico do Bem-Estar na Sua Casa
               </h2>
 
               <p>
-                Quando priorizamos o equilíbrio do nosso organismo, os benefícios transbordam para quem amamos:
+                Quando você adota um protocolo biológico para focar no seu canal interno de energia, a mudança é drástica, não só na sua pele, mas na resposta de que está ao seu redor:
               </p>
 
               <div className="bg-white p-8 border-l-8 border-cb-red shadow-md my-8">
                 <ul className="pain-list space-y-4">
-                  <li><strong>Presença e Alegria:</strong> Uma disposição renovada permite aproveitar melhor o tempo juntos.</li>
-                  <li><strong>Leveza no Olhar:</strong> O autocuidado ajuda a reduzir a tensão que muitas vezes gera conflitos desnecessários.</li>
-                  <li><strong>Confiança Natural:</strong> Sentir-se bem consigo mesma é o primeiro passo para resgatar o magnetismo no relacionamento.</li>
+                  <li><strong>A Frequência Calma (Nervo Vago):</strong> Em vez de reagir na hora de uma briga, você desperta uma confiança inabalável para observar, sorrir enigmaticamente e despertar curiosidade.</li>
+                  <li><strong>O Olhar Presente:</strong> Como um organismo sem acúmulo permite que seus olhos voltem a brilhar intensamente, enviando a ele um "sinal biológico universal de atração".</li>
+                  <li><strong>A "Levantada" de Autoconfiança:</strong> Sentir-se radiante, sem "fardo" no estômago e dona de si faz o parceiro focar na nova atração que preenche o ambiente. O comportamento dele gira organicamente.</li>
                 </ul>
               </div>
 
               <hr className="my-12 border-gray-300" />
 
               <h2 className="text-3xl md:text-4xl font-serif font-black text-black text-center mb-8">
-                O Protocolo de Bama Para Casais
+                Apresentando: O "Código de Bama"
               </h2>
 
               <p>
-                Este manual prático de harmonização da rotina ensina você a equilibrar seu ambiente e cultivar a admiração de dentro para fora.
+                Este não é mais um daqueles conselhos tradicionais de psicologia. É um manual para mulheres modernas transformarem a própria biologia em uma ferramenta de Reatração Profunda. No <strong>Código de Bama</strong>, você vai finalmente recuperar a Vitalidade das Matriarcas Centenárias.
               </p>
 
+              <p className="font-bold mb-4">Veja apenas uma fração do que este material revolucionário revela:</p>
+
               <ul className="check-list bg-white p-8 border border-green-500 rounded-lg shadow-sm my-8 space-y-4">
-                <li><strong>O Ritual Matinal de Conexão:</strong> Como despertar sua sensação de bem-estar para começar o dia com mais paciência e disposição.</li>
-                <li><strong>Suporte à Vitalidade Natural:</strong> Hábitos ancestrais que favorecem o conforto do organismo e a leveza do corpo.</li>
-                <li><strong>A Linguagem da Convivência:</strong> Como sua nova energia vai se refletir naturalmente na sua presença e no seu relacionamento.</li>
+                <li><strong>O Ritual De "Recalibragem" Em 30 Segundos:</strong> O toque exato de amolecimento do dia que funciona como "faxina" na sua irritabilidade, desativando o modo estresse assim que você sai da cama. (Isso faz a diferença em como ele enxerga você ao longo dia).</li>
+                <li><strong>A Verdade Sobre o Elixir Do Vigor:</strong> Como ingredientes baratos que você já tem na cozinha desincham seu ventre e devolvem um corpo mais responsivo e com energia de juventude.</li>
+                <li><strong>A Arte de Ser "Magnética no Silêncio":</strong> Você não terá que implorar por atenção. O Código de "presença relaxada" de Bama programa ele para ir até você querendo oferecer o afeto.</li>
+                <li><strong>O Plano De Imersão Rápida De 14 Dias:</strong> O passo a passo sem estresse nem complicação para remover a Fadiga atual e fixar o estado de Magnetismo Pleno.</li>
               </ul>
 
               <div className="text-center my-12">
