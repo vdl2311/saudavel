@@ -1,162 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@400;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Inter", sans-serif;
-  --font-serif: "Montserrat", sans-serif;
+  --font-serif: "Playfair Display", serif;
 }
 
 :root {
-  --cb-red: #cc0000;
-  --cb-yellow: #fff200;
-  --cb-black: #111111;
-  --cb-bg: #ffffff;
+  --color-brand-red: #8b1e1e;
+  --color-brand-bg: #fafafa;
+  --color-text-main: #1a1a1a;
+  --color-text-muted: #666666;
 }
 
 body {
-  background: var(--cb-bg);
-  color: var(--cb-black);
-  font-family: 'Inter', sans-serif;
+  background: var(--color-brand-bg);
+  color: var(--color-text-main);
+  font-family: var(--font-sans);
   font-size: 1.125rem;
-  font-weight: 400;
-  line-height: 1.6;
-  overflow-x: hidden;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, .font-serif {
-  font-family: 'Montserrat', sans-serif;
-}
-
-.container-custom { max-width: 800px; margin: 0 auto; padding: 0 20px; }
-
-/* ── CTA BUTTONS ── */
-.btn-cta-cb {
-  display: block;
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  background: linear-gradient(to bottom, #ffeb3b, #f39c12);
-  color: #111;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900;
-  font-size: clamp(1.2rem, 3vw, 1.8rem);
-  text-align: center;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 20px 20px;
-  border-radius: 8px;
-  border: 2px solid #e67e22;
-  cursor: pointer;
-  box-shadow: 0 8px 15px rgba(0,0,0,0.2), inset 0 2px 0 rgba(255,255,255,0.5);
-  transition: transform 0.1s, box-shadow 0.1s;
-}
-.btn-cta-cb:hover { transform: scale(1.02); box-shadow: 0 10px 20px rgba(0,0,0,0.3), inset 0 2px 0 rgba(255,255,255,0.5); }
-.btn-cta-cb:active { transform: scale(0.98); }
-
-.highlight-yellow {
-  background-color: var(--cb-yellow);
-  padding: 0 4px;
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
   color: #000;
-}
-
-.text-cb-red {
-  color: var(--cb-red);
-}
-
-.bonus-card {
-  border: 3px dashed var(--cb-red);
-  background-color: #fff9e6;
-  padding: 24px;
-  margin-bottom: 20px;
-}
-
-.guarantee-box {
-  border: 4px solid #f39c12;
-  background-color: #fff;
-  padding: 30px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.sticky-bar {
-  background-color: var(--cb-red);
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 800;
-  text-align: center;
-  padding: 10px;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-}
-
-/* VSL Placeholder */
-.vsl-container {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-  background-color: #000;
-  border: 5px solid #333;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  margin: 30px 0;
-  cursor: pointer;
-}
-.vsl-play-btn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80px;
-  height: 80px;
-  background-color: rgba(204, 0, 0, 0.9);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 20px rgba(204,0,0,0.5);
-}
-.vsl-play-btn::after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 15px 0 15px 25px;
-  border-color: transparent transparent transparent #fff;
-  margin-left: 5px;
-}
-
-.pain-list {
-  list-style: none;
-  padding: 0;
-}
-.pain-list li {
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-  padding-left: 30px;
-  position: relative;
-}
-.pain-list li::before {
-  content: '❌';
-  position: absolute;
-  left: 0;
-  top: 2px;
-}
-
-.check-list {
-  list-style: none;
-  padding: 0;
-}
-.check-list li {
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-  padding-left: 30px;
-  position: relative;
-  font-weight: 600;
-}
-.check-list li::before {
-  content: '✅';
-  position: absolute;
-  left: 0;
-  top: 2px;
+  letter-spacing: -0.02em;
 }
