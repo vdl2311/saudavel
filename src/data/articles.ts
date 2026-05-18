@@ -446,7 +446,7 @@ Lembre-se: o seu corpo ouve cada pensamento que você tem. Ao escolher a calma s
       {
         slug: 'a-tecnica-4-7-8-e-o-nervo-vago',
         title: 'Técnicas de Respiração e o Poder do Nervo Vago',
-        image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1200',
+        image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=60&w=800',
         content: `
 ## Introdução: O Interruptor Biológico da Calma
 
@@ -562,7 +562,7 @@ Comece hoje: adote o silêncio matinal, use sua visão de horizonte e escolha a 
       {
         slug: 'ikigai-e-proposito-biologia-da-vontade-de-viver',
         title: 'Ikigai e Propósito: A Biologia da Vontade de Viver e a Longevidade',
-        image: 'https://images.unsplash.com/photo-1516307361668-333067d022b3?auto=format&fit=crop&q=60&w=800',
+        image: '/Ikigai e Propósito A Biologia da Vontade de Viver e a Longevidade..png',
         content: `
 ## Introdução: O Sentido da Vida como Combustível Celular
 
@@ -723,48 +723,9 @@ Investir na qualidade do seu santuário de sono é investir na integridade de ca
         `
       },
       {
-        slug: 'crononutricao-e-ritmo-circadiano',
-        title: 'Crononutrição: Como o Relógio Biológico Governa sua Saúde',
-        image: 'https://images.unsplash.com/photo-1463936575829-25148e1db1b8?auto=format&fit=crop&q=80&w=1200',
-        content: `
-## Introdução: A Fundação Invisível da Nossa Longevidade
-
-Muitas vezes, quando pensamos em envelhecimento, a imagem que nos vem à mente é a da fragilidade: ossos que se quebram e músculos que se atrofiam. No entanto, na Vila de Bama, o que vemos é o oposto. Idosos de 90 e 100 anos carregam cestas de colheita, sobem ladeiras e mantêm uma postura ereta que desafia a gravidade. O segredo deles não está em frequentar academias de musculação com aparelhos de última geração, mas em uma vida permeada por **resistência natural e força funcional**. Eles mantêm a densidade óssea não por obrigação estética, mas por necessidade biológica integrada à rotina.
-
-A verdade é que o seu esqueleto é um tecido dinâmico que responde diretamente à pressão. Sem o estímulo da carga, o corpo entende que não precisa investir energia para manter ossos densos, iniciando o processo de osteopenia e sarcopenia. Entender como recriar esses estímulos no ambiente moderno é o que separa um futuro de limitações de um futuro de autonomia total. Neste artigo, exploraremos como você pode construir uma "armadura biológica" através de movimentos que respeitam a anatomia e promovem a saúde óssea e muscular sem o desgaste articular dos treinos punitivos.
-
-## O Conceito: A Lei de Wolff e a Resiliência Musculoesquelética
-
-A base científica para o fortalecimento ósseo chama-se Lei de Wolff, que afirma que o osso se adapta e se torna mais denso em resposta às cargas mecânicas colocadas sobre ele. Quando você aplica tensão ao osso — seja através da tração muscular ou do impacto controlado —, pequenas correntes elétricas são geradas no tecido, ativando os osteoblastos (células construtoras de osso). Em Bama, esse fenômeno acontece o dia todo de forma incidental. Carregar água, agachar para plantar e caminhar em terrenos irregulares são formas brutas, mas precisas, de engenharia óssea.
-
-Em paralelo, a proteção das nossas articulações depende da força funcional. Músculos fortes não servem apenas para levantar peso, mas para agir como amortecedores do sistema esquelético. Quando os músculos ao redor do quadril e da coluna são resilientes, eles absorvem o impacto que, de outra forma, seria transferido diretamente para as cartilagens e discos intervertebrais. O treinamento de longevidade de Bama foca na **tensão mecânica de qualidade** e no controle motor, garantindo que o seu "veículo biológico" permaneça alinhado e capaz de suportar o próprio peso por décadas extras.
-
-## Dicas Práticas: Construindo Força no Ritmo de Bama
-
-Você não precisa de pesos de ferro maciço para fortalecer seus ossos; você precisa de gravidade e intenção. Aqui estão as quatro práticas fundamentais para desenvolver resistência natural no seu dia a dia:
-
-1.  **Cargas de Transporte (Caminhada do Agricultor):** Uma das melhores formas de densificar a coluna e o quadril é carregar peso enquanto caminha. Em casa, treine carregar uma sacola pesada em cada mão (ou de um lado só para treinar a estabilidade do core) por 5 minutos. Isso recruta todos os ossos da cadeia cinética e fortalece o equilíbrio.
-2.  **O Agachamento de "Descanso":** O agachamento profundo é a postura natural de descanso do ser humano, ainda vista amplamente em Bama. Pratique ficar agachado (com calcanhares no chão, se possível) por 2 ou 3 minutos várias vezes ao dia. Isso mantém a densidade do colo do fêmur — local mais comum de fraturas perigosas em idosos — e preserva a mobilidade do tornozelo.
-3.  **Exercícios de Impacto Leve e Vibração:** O impacto é necessário para o osso. Se suas articulações permitirem, dê pequenos saltitos no lugar ou caminhe de forma firme em superfícies naturais como grama ou areia. Esses micro-impactos sinalizam para o tecido ósseo a necessidade de reforma e densificação imediata.
-4.  **Treino de Resistência Corporal:** Movimentos como flexões na parede, pranchas e "leventar e sentar" sem o uso das mãos são ferramentas de ouro. Eles criam tensão muscular constante e controlada, estimulando a síntese proteica sem sobrecarregar as articulações com cargas artificiais que poderiam causar inflamação.
-
-## Erros Comuns e Cuidados: O Perigo do "Tudo ou Nada"
-
-O maior erro é a inatividade por medo de lesão. Muitas pessoas param de carregar qualquer peso ao receber um diagnóstico de osteoporose, o que acelera o problema. O osso precisa de carga para se curar, desde que essa carga seja progressiva e segura. Outro erro comum é focar apenas em exercícios de "máquina" na academia, que isolam os músculos mas não treinam a estabilidade óssea necessária para o mundo real, onde o terreno é irregular e os movimentos são imprevisíveis.
-
-Cuidado também com a técnica: no treinamento de resistência, o controle é mais importante que o volume. Movimentos bruscos ou com má postura podem gerar cisalhamentos perigosos nas vértebras. Em Bama, a força é fluida e acompanhada de respiração nasal. Nunca prenda a respiração sob esforço extremo, pois isso eleva a pressão interna e estressa o sistema vascular. O objetivo é a **tensão sustentada**, onde você sente o músculo trabalhar intensamente, mas seu sistema nervoso permanece calmo. Se a dor for aguda e articular, pare; o estímulo deve ser sentido no ventre do músculo e na estrutura global, nunca no "encaixe" das articulações.
-
-## Conclusão: O Investimento na Sua Estrutura Futura
-
-Desenvolver Força Funcional e Densidade Óssea é, talvez, o investimento mais prático que você pode fazer para garantir sua autonomia na velhice. Um corpo forte é um corpo livre de quedas, dependência e dor crônica. Ao adotar o ritmo de resistência natural de Bama, você está enviando uma mensagem poderosa para suas células: "Ainda estamos em construção, ainda somos fortes e ainda temos muito a realizar".
-
-Comece hoje: carregue as compras do mercado com consciência, agache-se enquanto espera o café ficar pronto e caminhe com passos firmes e presentes. A longevidade não é um presente da sorte, mas a arquitetura de uma vida que nunca parou de se mover contra a gravidade. Sua estrutura óssea é o templo do seu espírito; mantenha-a sólida, mantenha-a vibrante e caminhe com orgulho em direção aos seus 100 anos.
-        `
-      },
-      {
         slug: 'o-poder-do-silencio-na-era-digital',
         title: 'O Poder do Silêncio: Blindagem Mental na Era da Hiperestimulação',
-        image: 'https://images.unsplash.com/photo-1499209974431-9dac3eb1401a?auto=format&fit=crop&q=60&w=800',
+        image: '/O Poder do Silêncio Blindagem Mental na Era da Hiperestimulação.png',
         content: `
 ## Introdução: O Resgate do Espaço Sagrado Entre os Pensamentos
 
@@ -803,7 +764,7 @@ O mundo continuará barulhento, mas você pode levar a sua própria quietude par
       {
         slug: 'crononutricao-e-ritmo-circadiano',
         title: 'Crononutrição: Como o Relógio Biológico Governa sua Saúde',
-        image: 'https://images.unsplash.com/photo-1463936575829-25148e1db1b8?auto=format&fit=crop&q=80&w=1200',
+        image: 'https://images.unsplash.com/photo-1463936575829-25148e1db1b8?auto=format&fit=crop&q=60&w=800',
         content: `
 ## Introdução: O Horário é Tão Importante Quanto o Alimento
 
@@ -842,7 +803,7 @@ O Protocolo de Bama convida você a olhar para o céu antes de olhar para o prat
       {
         slug: 'engenharia-do-sono-profundo-otimizando-ciclo-glinfatico',
         title: 'A Engenharia do Sono Profundo: Otimizando o Ciclo Glinfático para Renovação Total',
-        image: 'https://images.unsplash.com/photo-1455642305367-68834a1da7ab?auto=format&fit=crop&q=80&w=1200',
+        image: 'https://images.unsplash.com/photo-1455642305367-68834a1da7ab?auto=format&fit=crop&q=60&w=800',
         content: `
 ## Introdução: O Renascimento Celular Através da Escuridão
 
@@ -880,7 +841,7 @@ Ao adotar o Protocolo de Bama e respeitar a escuridão e o frio, você sentirá 
       {
         slug: 'higiene-circadiana-e-sincronia-da-luz',
         title: 'Higiene Circadiana: Como Sincronizar sua Biologia com a Luz Solar',
-        image: 'https://images.unsplash.com/photo-1470252649358-96957c053e9a?auto=format&fit=crop&q=60&w=800',
+        image: '/Higiene Circadiana Como Sincronizar sua Biologia com a Luz Solar.png',
         content: `
 ## Introdução: O Ritmo Esquecido da Vida
 
