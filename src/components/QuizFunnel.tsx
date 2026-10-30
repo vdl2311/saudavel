@@ -122,7 +122,7 @@ export function QuizFunnel({ initialStep = 'welcome' }: QuizFunnelProps) {
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-[#9E4A3B] animate-pulse" />
             <span className="font-serif font-black tracking-tight text-xl sm:text-2xl text-[#1E1E1E]">
-              Protocolo da Serenidade
+              Protocolo de Bama
             </span>
           </div>
           <div className="flex items-center gap-4 text-xs font-medium text-stone-500 uppercase tracking-wider">
@@ -534,33 +534,129 @@ export function QuizFunnel({ initialStep = 'welcome' }: QuizFunnelProps) {
                   </div>
                 </div>
 
-                {/* Final Call To Action Box (Hotmart) */}
-                <div className="my-14 bg-gradient-to-b from-[#2A231E] to-[#1A1613] text-white rounded-2xl p-8 sm:p-12 text-center shadow-xl">
-                  <span className="inline-block text-[#E5B583] text-xs font-bold uppercase tracking-widest mb-4">
-                    Passo Seguinte Recomendado
-                  </span>
+                {/* Final Call To Action Box (Hotmart - Mini Sales Page) */}
+                <div className="my-14 bg-gradient-to-b from-[#231E1A] via-[#1E1915] to-[#14110F] text-white rounded-3xl p-6 sm:p-10 md:p-12 text-center shadow-2xl border border-[#44382E] relative overflow-hidden">
+                  {/* Subtle decorative glow */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-[#C45543]/15 rounded-full blur-3xl pointer-events-none" />
+
+                  {/* Top Badge */}
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#3B2C23] border border-[#E5B583]/40 text-[#F5CBA7] text-xs font-bold uppercase tracking-widest mb-6">
+                    <Sparkles className="w-3.5 h-3.5 text-[#E5B583]" />
+                    <span>Acesso Exclusivo · Oferta Especial</span>
+                  </div>
+
+                  {/* Headline */}
                   <h3
-                    className="text-2xl sm:text-4xl font-serif font-black !text-white text-white leading-tight mb-4"
+                    className="text-2xl sm:text-4xl font-serif font-black !text-white text-white leading-tight mb-4 max-w-2xl mx-auto"
                     style={{ color: "#ffffff" }}
                   >
                     Quer Explorar Esses Hábitos de Forma Organizada?
                   </h3>
-                  <p className="text-stone-300 text-base sm:text-lg leading-relaxed max-w-xl mx-auto mb-8">
+
+                  {/* Subtitle / Lead */}
+                  <p className="text-stone-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-8 font-normal">
                     Reunimos todo o passo a passo detalhado, receitas práticas, guia de infusões calmantes e o método diário de respiração e equilíbrio em um material completo e acessível.
                   </p>
-                  <a
-                    href="https://pay.hotmart.com/Y98549636E?checkoutMode=10"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full sm:w-auto px-10 py-5 bg-[#C45543] hover:bg-[#B04332] !text-white text-white text-lg font-bold rounded-xl shadow-2xl transition-all duration-200 transform hover:-translate-y-0.5 inline-flex items-center justify-center gap-3 cursor-pointer no-underline"
-                    style={{ color: "#ffffff" }}
-                  >
-                    <span className="!text-white text-white font-bold" style={{ color: "#ffffff" }}>
-                      Quero Conhecer o Material Completo →
+
+                  {/* Deliverables / Value Stack */}
+                  <div className="bg-[#181412]/80 border border-[#3A3027] rounded-2xl p-5 sm:p-7 mb-8 text-left max-w-2xl mx-auto">
+                    <div className="text-xs font-bold uppercase tracking-wider text-[#E5B583] mb-4 text-center sm:text-left">
+                      O Que Você Vai Receber:
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                      <div className="flex items-start gap-3 bg-[#241E1A] p-3.5 rounded-xl border border-[#332A22]">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                        <div>
+                          <strong className="block text-white text-sm font-semibold mb-0.5">O Método de Bama Passo a Passo</strong>
+                          <span className="text-stone-400 text-xs leading-relaxed">Guia digital completo em PDF para ler no celular, tablet ou computador.</span>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-3 bg-[#241E1A] p-3.5 rounded-xl border border-[#332A22]">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                        <div>
+                          <strong className="block text-white text-sm font-semibold mb-0.5">Planilha de Acompanhamento de Humor e Energia</strong>
+                          <span className="text-stone-400 text-xs leading-relaxed">Uma planilha simples para registrar seu progresso diário e identificar padrões — ajuda a perceber as mudanças que acontecem gradualmente.</span>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-3 bg-[#241E1A] p-3.5 rounded-xl border border-[#332A22]">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                        <div>
+                          <strong className="block text-white text-sm font-semibold mb-0.5">Ritual Noturno Anti-Cortisol</strong>
+                          <span className="text-stone-400 text-xs leading-relaxed">Técnicas de respiração e relaxamento para noites de sono profundo.</span>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-3 bg-[#241E1A] p-3.5 rounded-xl border border-[#332A22]">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                        <div>
+                          <strong className="block text-white text-sm font-semibold mb-0.5">Plano de Equilíbrio de 14 Dias</strong>
+                          <span className="text-stone-400 text-xs leading-relaxed">Alimentos ricos em fitoestrógenos naturais fáceis de incluir na sua rotina.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Price Box */}
+                  <div className="max-w-md mx-auto mb-8 bg-gradient-to-b from-[#2B231D] to-[#201A15] p-6 rounded-2xl border-2 border-[#D4824B]/50 shadow-inner text-center">
+                    <span className="inline-block text-stone-400 text-xs uppercase tracking-widest line-through mb-1">
+                      De R$ 97,00
                     </span>
-                  </a>
-                  <div className="mt-5 text-xs text-stone-400 flex items-center justify-center gap-2">
-                    <span>📖 Conteúdo educativo · Sem compromisso</span>
+                    <div className="flex items-baseline justify-center gap-2 mb-2">
+                      <span className="text-stone-300 text-sm font-medium">Por apenas</span>
+                      <span className="text-4xl sm:text-5xl font-black text-[#F8E7D1] tracking-tight">
+                        R$ 37,90
+                      </span>
+                    </div>
+                    <span className="inline-block text-emerald-400 text-xs font-semibold bg-emerald-950/60 border border-emerald-800/60 px-3 py-1 rounded-full">
+                      ✓ Pagamento único · Sem mensalidades · Acesso imediato
+                    </span>
+                  </div>
+
+                  {/* CTA Button */}
+                  <div className="max-w-md mx-auto mb-7">
+                    <a
+                      href="https://pay.hotmart.com/Y98549636E?checkoutMode=10"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-5 px-6 bg-gradient-to-r from-[#D94F3D] to-[#BA3726] hover:from-[#E65846] hover:to-[#C63E2D] !text-white text-white text-lg sm:text-xl font-bold rounded-2xl shadow-2xl transition-all duration-200 transform hover:-translate-y-0.5 inline-flex items-center justify-center gap-3 cursor-pointer no-underline group"
+                      style={{ color: "#ffffff" }}
+                    >
+                      <span className="!text-white text-white font-black tracking-wide" style={{ color: "#ffffff" }}>
+                        QUERO O PROTOCOLO POR R$ 37,90 →
+                      </span>
+                    </a>
+                  </div>
+
+                  {/* Guarantee Box (7 Dias) */}
+                  <div className="max-w-xl mx-auto bg-[#171310] border border-[#3E342B] rounded-2xl p-5 mb-6 text-left flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center shrink-0">
+                      <ShieldCheck className="w-7 h-7 text-[#E5B583]" />
+                    </div>
+                    <div>
+                      <h4 className="text-base font-bold mb-1" style={{ color: "#f9f2f2" }}>
+                        Garantia Incondicional de 7 Dias
+                      </h4>
+                      <p className="text-xs sm:text-sm text-stone-300 leading-relaxed mb-0">
+                        Experimente o material por 7 dias. Se você aplicar os hábitos e sentir que eles não fizeram diferença no seu bem-estar, disposição e tranquilidade, basta solicitar o reembolso que devolveremos 100% do seu investimento.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Security and Trust Badges */}
+                  <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-stone-400 pt-2 border-t border-[#332A22]">
+                    <span className="flex items-center gap-1.5">
+                      <ShieldCheck className="w-4 h-4 text-emerald-400" /> Compra 100% Segura
+                    </span>
+                    <span className="hidden sm:inline text-stone-600">•</span>
+                    <span className="flex items-center gap-1.5">
+                      <Clock className="w-4 h-4 text-emerald-400" /> Acesso Imediato por E-mail
+                    </span>
+                    <span className="hidden sm:inline text-stone-600">•</span>
+                    <span className="flex items-center gap-1.5">
+                      <BookOpen className="w-4 h-4 text-emerald-400" /> Leitura no Celular e Computador
+                    </span>
                   </div>
                 </div>
               </div>
@@ -591,7 +687,7 @@ export function QuizFunnel({ initialStep = 'welcome' }: QuizFunnelProps) {
                 Acesso Imediato
               </div>
               <h3 className="text-2xl font-serif font-black text-stone-900 mb-3">
-                Protocolo da Serenidade: O Guia Completo
+                Protocolo de Bama: O Guia Completo
               </h3>
               <p className="text-sm text-stone-600 mb-6 leading-relaxed">
                 Você terá acesso ao método prático passo a passo, cardápio de modulação natural, receitas calmantes e áudios guiados de desaceleração noturna.
@@ -624,7 +720,7 @@ export function QuizFunnel({ initialStep = 'welcome' }: QuizFunnelProps) {
                   className="w-full py-4 bg-[#9E4A3B] hover:bg-[#863B2E] !text-white text-white font-bold rounded-xl text-center shadow-lg block transition-colors no-underline"
                   style={{ color: "#ffffff" }}
                 >
-                  Ir Para o Pagamento Seguro
+                  Acessar Protocolo por R$ 37,90
                 </a>
                 <button
                   onClick={() => setShowCheckoutModal(false)}
@@ -672,7 +768,7 @@ export function QuizFunnel({ initialStep = 'welcome' }: QuizFunnelProps) {
           </div>
 
           <div className="text-xs text-stone-500 border-t border-stone-800/60 pt-6 w-full text-center">
-            © 2026 Protocolo da Serenidade · Todos os direitos reservados.
+            © 2026 Protocolo de Bama · Todos os direitos reservados.
           </div>
         </div>
       </footer>

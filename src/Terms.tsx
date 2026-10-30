@@ -8,7 +8,7 @@ export default function Terms() {
       <header className="bg-white border-b border-[#EAE5D9] sticky top-0 z-40">
         <div className="max-w-4xl mx-auto px-4 h-16 sm:h-20 flex items-center justify-between">
           <Link to="/" className="font-serif font-black tracking-tight text-xl sm:text-2xl text-[#1E1E1E]">
-            Protocolo da Serenidade
+            Protocolo de Bama
           </Link>
           <Link to="/" className="text-xs font-semibold uppercase tracking-wider text-[#9E4A3B] hover:underline flex items-center gap-1">
             <ArrowLeft className="w-4 h-4" /> Voltar ao Teste
@@ -31,7 +31,7 @@ export default function Terms() {
 
         <div className="space-y-8 text-base sm:text-lg leading-relaxed text-[#3E3A34]">
           <p>
-            Ao acessar o portal e participar do questionário interativo oferecido pelo <strong>Protocolo da Serenidade</strong>, você declara estar de acordo com as diretrizes e termos aqui estabelecidos.
+            Ao acessar o portal e participar do questionário interativo oferecido pelo <strong>Protocolo de Bama</strong>, você declara estar de acordo com as diretrizes e termos aqui estabelecidos.
           </p>
 
           <h2 className="text-2xl font-serif font-black text-[#1E1E1E] mt-8 mb-3">
@@ -48,7 +48,7 @@ export default function Terms() {
             2. Propriedade Intelectual
           </h2>
           <p>
-            Os textos, imagens autorais, fluxos interativos e identidade visual do Protocolo da Serenidade são protegidos pelas leis de direitos autorais. É proibida a reprodução, cópia integral ou distribuição não autorizada para fins comerciais.
+            Os textos, imagens autorais, fluxos interativos e identidade visual do Protocolo de Bama são protegidos pelas leis de direitos autorais. É proibida a reprodução, cópia integral ou distribuição não autorizada para fins comerciais.
           </p>
 
           <h2 className="text-2xl font-serif font-black text-[#1E1E1E] mt-8 mb-3">
@@ -67,7 +67,7 @@ export default function Terms() {
       </main>
 
       <footer className="bg-[#1C1A18] text-[#A69E94] border-t border-[#2E2B27] py-8 px-4 text-center text-xs">
-        © 2026 Protocolo da Serenidade · Todos os direitos reservados.
+        © 2026 Protocolo de Bama · Todos os direitos reservados.
       </footer>
     </div>
   );

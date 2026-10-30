@@ -15,7 +15,7 @@ export default function Contato() {
       <header className="bg-white border-b border-[#EAE5D9] sticky top-0 z-40">
         <div className="max-w-4xl mx-auto px-4 h-16 sm:h-20 flex items-center justify-between">
           <Link to="/" className="font-serif font-black tracking-tight text-xl sm:text-2xl text-[#1E1E1E]">
-            Protocolo da Serenidade
+            Protocolo de Bama
           </Link>
           <Link to="/" className="text-xs font-semibold uppercase tracking-wider text-[#9E4A3B] hover:underline flex items-center gap-1">
             <ArrowLeft className="w-4 h-4" /> Voltar ao Teste
@@ -47,8 +47,8 @@ export default function Contato() {
             <p className="text-xs text-stone-500 mb-2">
               Para dúvidas gerais e pós-venda
             </p>
-            <a href="mailto:contato@protocolodaserenidade.com" className="text-sm font-semibold text-[#9E4A3B] hover:underline">
-              contato@protocolodaserenidade.com
+            <a href="mailto:contato@protocolodebama.com" className="text-sm font-semibold text-[#9E4A3B] hover:underline">
+              contato@protocolodebama.com
             </a>
           </div>
 
@@ -138,7 +138,7 @@ export default function Contato() {
       </main>
 
       <footer className="bg-[#1C1A18] text-[#A69E94] border-t border-[#2E2B27] py-8 px-4 text-center text-xs">
-        © 2026 Protocolo da Serenidade · Todos os direitos reservados.
+        © 2026 Protocolo de Bama · Todos os direitos reservados.
       </footer>
     </div>
   );

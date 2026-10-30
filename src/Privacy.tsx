@@ -8,7 +8,7 @@ export default function Privacy() {
       <header className="bg-white border-b border-[#EAE5D9] sticky top-0 z-40">
         <div className="max-w-4xl mx-auto px-4 h-16 sm:h-20 flex items-center justify-between">
           <Link to="/" className="font-serif font-black tracking-tight text-xl sm:text-2xl text-[#1E1E1E]">
-            Protocolo da Serenidade
+            Protocolo de Bama
           </Link>
           <Link to="/" className="text-xs font-semibold uppercase tracking-wider text-[#9E4A3B] hover:underline flex items-center gap-1">
             <ArrowLeft className="w-4 h-4" /> Voltar ao Teste
@@ -31,7 +31,7 @@ export default function Privacy() {
 
         <div className="space-y-8 text-base sm:text-lg leading-relaxed text-[#3E3A34]">
           <p>
-            Sua privacidade é de extrema importância para nós. É política do <strong>Protocolo da Serenidade</strong> respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar em nosso portal e canais oficiais.
+            Sua privacidade é de extrema importância para nós. É política do <strong>Protocolo de Bama</strong> respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar em nosso portal e canais oficiais.
           </p>
 
           <h2 className="text-2xl font-serif font-black text-[#1E1E1E] mt-8 mb-3">
@@ -78,7 +78,7 @@ export default function Privacy() {
       </main>
 
       <footer className="bg-[#1C1A18] text-[#A69E94] border-t border-[#2E2B27] py-8 px-4 text-center text-xs">
-        © 2026 Protocolo da Serenidade · Todos os direitos reservados.
+        © 2026 Protocolo de Bama · Todos os direitos reservados.
       </footer>
     </div>
   );
