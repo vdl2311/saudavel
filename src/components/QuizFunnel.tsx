@@ -39,22 +39,22 @@ const questions: Question[] = [
   },
   {
     id: 3,
-    question: "Como você lida com o estresse do dia a dia e o ritmo das suas tarefas?",
+    question: "Você tem notado mudanças no seu metabolismo, inchaço ou retenção de peso na cintura?",
     options: [
-      { letter: "A", text: "Consigo desacelerar bem e manter a mente tranquila." },
-      { letter: "B", text: "Sinto pressões normais, mas consigo gerenciar na maioria dos dias." },
-      { letter: "C", text: "Fico frequentemente sobrecarregada, acumulando tensões no corpo." },
-      { letter: "D", text: "O estresse é constante e sinto que ele afeta diretamente meu humor e minha energia." }
+      { letter: "A", text: "Meu metabolismo continua ativo e não sinto inchaço significativo." },
+      { letter: "B", text: "Sinto inchaço leve após refeições ou dias mais estressantes." },
+      { letter: "C", text: "Sinto o metabolismo visivelmente mais lento e dificuldade para manter a cintura fina." },
+      { letter: "D", text: "Ganho peso com facilidade, inchaço diário e sensação de que nada faz emagrecer." }
     ]
   },
   {
     id: 4,
     question: "Qual das seguintes alternativas mais se alinha com o que você busca para o seu bem-estar atual?",
     options: [
-      { letter: "A", text: "Apenas manter meus hábitos saudáveis atuais." },
-      { letter: "B", text: "Descobrir formas naturais e simples de cuidar mais de mim." },
-      { letter: "C", text: "Entender melhor como alinhar a alimentação e a respiração para ter mais leveza." },
-      { letter: "D", text: "Encontrar um método prático e guiado para recuperar minhas noites de sono e o equilíbrio do corpo." }
+      { letter: "A", text: "Eliminar ondas de calor (fogachos) e voltar a dormir a noite toda com sono profundo." },
+      { letter: "B", text: "Reativar o metabolismo acelerado e manter a cintura fina mesmo após os 50 anos." },
+      { letter: "C", text: "Entender melhor como alinhar a alimentação e a respiração para ter mais leveza e energia." },
+      { letter: "D", text: "Encontrar um método prático e guiado para recuperar o equilíbrio hormonal e do corpo." }
     ]
   }
 ];
@@ -62,9 +62,10 @@ const questions: Question[] = [
 export function QuizFunnel({ initialStep = 'welcome' }: QuizFunnelProps) {
   const [step, setStep] = useState<'welcome' | 'quiz' | 'analyzing' | 'result' | 'article'>(initialStep);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [, setAnswers] = useState<Record<number, string>>({});
+  const [answers, setAnswers] = useState<Record<number, string>>({});
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [analysisProgress, setAnalysisProgress] = useState(0);
+  const [symptomFocus, setSymptomFocus] = useState<'calorao' | 'metabolismo'>('calorao');
   const [showCheckoutModal, setShowCheckoutModal] = useState(false);
 
   useEffect(() => {
@@ -80,13 +81,28 @@ export function QuizFunnel({ initialStep = 'welcome' }: QuizFunnelProps) {
 
   const handleAnswer = (letter: string) => {
     setSelectedOption(letter);
-    setAnswers((prev) => ({ ...prev, [currentQuestion]: letter }));
+    const updatedAnswers = { ...answers, [currentQuestion]: letter };
+    setAnswers(updatedAnswers);
 
     setTimeout(() => {
       if (currentQuestion < questions.length - 1) {
         setCurrentQuestion((prev) => prev + 1);
         setSelectedOption(null);
       } else {
+        // Determine primary symptom focus
+        if (letter === 'B') {
+          setSymptomFocus('metabolismo');
+        } else if (letter === 'A') {
+          setSymptomFocus('calorao');
+        } else {
+          const q3Ans = updatedAnswers[2];
+          if (q3Ans === 'C' || q3Ans === 'D') {
+            setSymptomFocus('metabolismo');
+          } else {
+            setSymptomFocus('calorao');
+          }
+        }
+
         setStep('analyzing');
         startAnalysis();
       }
@@ -96,11 +112,11 @@ export function QuizFunnel({ initialStep = 'welcome' }: QuizFunnelProps) {
   const startAnalysis = () => {
     setAnalysisProgress(15);
     const t1 = setTimeout(() => setAnalysisProgress(55), 450);
-    const t2 = setTimeout(() => setAnalysisProgress(88), 900);
+    const t2 = setTimeout(() => setAnalysisProgress(94), 1000);
     const t3 = setTimeout(() => {
       setAnalysisProgress(100);
       setStep('result');
-    }, 1400);
+    }, 1800);
 
     return () => {
       clearTimeout(t1);
@@ -263,25 +279,29 @@ export function QuizFunnel({ initialStep = 'welcome' }: QuizFunnelProps) {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
-              className="w-full max-w-md px-6 py-20 flex flex-col items-center text-center"
+              className="w-full max-w-lg px-6 py-20 flex flex-col items-center text-center"
             >
-              <div className="relative w-20 h-20 mb-8 flex items-center justify-center">
+              <div className="relative w-24 h-24 mb-8 flex items-center justify-center">
                 <div className="absolute inset-0 border-4 border-[#EAE5D9] rounded-full" />
                 <div className="absolute inset-0 border-4 border-[#9E4A3B] border-t-transparent rounded-full animate-spin" />
-                <Sparkles className="w-8 h-8 text-[#9E4A3B] animate-pulse" />
+                <Sparkles className="w-10 h-10 text-[#9E4A3B] animate-pulse" />
               </div>
-              <h2 className="text-2xl font-serif font-black text-[#1E1E1E] mb-3">
-                Processando suas respostas...
+              <h2 className="text-2xl sm:text-3xl font-serif font-black text-[#1E1E1E] mb-4">
+                Calculando seu perfil...
               </h2>
-              <p className="text-sm text-[#6E675D] mb-6">
-                Cruzando seus padrões com os pilares biológicos de longevidade e equilíbrio hormonal.
-              </p>
-              <div className="w-full bg-[#EAE5D9] h-2 rounded-full overflow-hidden">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 text-emerald-800 text-xs sm:text-sm font-semibold border border-emerald-200 shadow-xs mb-6 max-w-md">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>Identificamos compatibilidade de 94% com o método de Bama.</span>
+              </div>
+              <div className="w-full bg-[#EAE5D9] h-2.5 rounded-full overflow-hidden max-w-md mb-2">
                 <motion.div
-                  className="bg-[#9E4A3B] h-full rounded-full transition-all duration-300"
+                  className="bg-gradient-to-r from-[#BA3726] to-[#9E4A3B] h-full rounded-full transition-all duration-300"
                   style={{ width: `${analysisProgress}%` }}
                 />
               </div>
+              <span className="text-xs font-semibold text-stone-500">
+                {analysisProgress}% concluído
+              </span>
             </motion.section>
           )}
 
@@ -299,8 +319,8 @@ export function QuizFunnel({ initialStep = 'welcome' }: QuizFunnelProps) {
                 <Check className="w-9 h-9" />
               </div>
 
-              <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#F2EDE4] text-[#8C3A2B] text-xs font-bold uppercase tracking-wider mb-4">
-                Índice de Serenidade & Equilíbrio
+              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4 border border-emerald-200">
+                ✓ Compatibilidade de 94% com o Método de Bama
               </div>
 
               <h1 className="text-3xl sm:text-5xl font-serif font-black text-[#1E1E1E] leading-tight mb-8">
@@ -338,6 +358,23 @@ export function QuizFunnel({ initialStep = 'welcome' }: QuizFunnelProps) {
               transition={{ duration: 0.4 }}
               className="w-full max-w-3xl px-4 sm:px-6 py-10 sm:py-16"
             >
+              {/* Personalized compatibility alert */}
+              <div className="bg-[#FAF2F0] border border-[#E5DAC6] rounded-xl p-4 sm:p-5 mb-8 flex items-start gap-3.5 text-left">
+                <div className="w-9 h-9 rounded-full bg-[#9E4A3B]/10 border border-[#9E4A3B]/30 flex items-center justify-center shrink-0 mt-0.5">
+                  <Sparkles className="w-4 h-4 text-[#9E4A3B]" />
+                </div>
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-wider text-[#9E4A3B] mb-1">
+                    Análise Concluída · Compatibilidade de 94% com o Método de Bama
+                  </div>
+                  <div className="text-xs sm:text-sm text-[#4A453F] leading-relaxed">
+                    {symptomFocus === 'metabolismo'
+                      ? 'Identificamos que seu foco prioritário é o metabolismo desacelerado e a retenção de peso. O artigo a seguir revela as práticas diárias que mantêm a cintura fina na vila de Bama sem dietas restritivas.'
+                      : 'Identificamos que seu foco prioritário é o alívio das ondas de calor (fogachos) e a insônia. O artigo a seguir detalha o segredo ancestral que devolve o sono profundo e o controle da temperatura interna.'}
+                  </div>
+                </div>
+              </div>
+
               {/* Categories badge bar */}
               <div className="flex flex-wrap items-center gap-2 mb-6">
                 {['Saúde & Bem-Estar Feminino', 'Disposição', 'Bem-Estar', 'Qualidade de Vida', 'Longevidade'].map((tag, idx) => (
@@ -354,12 +391,16 @@ export function QuizFunnel({ initialStep = 'welcome' }: QuizFunnelProps) {
                 ✦ Saúde Feminina · Longevidade
               </div>
 
-              <h1 className="text-3xl sm:text-5xl md:text-5xl font-serif font-black text-[#1E1E1E] leading-[1.2] mb-6">
-                Por Que Tantas Mulheres Asiáticas Passam Pela Maturidade Com Tanta Leveza?
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-black text-[#1E1E1E] leading-[1.2] mb-6">
+                {symptomFocus === 'metabolismo'
+                  ? 'Análise Concluída: Como as mulheres da tribo de Bama, na China, mantêm o metabolismo acelerado e a cintura fina mesmo após os 50 anos (Sem repor hormônios).'
+                  : 'Análise Concluída: O segredo milenar de Bama: Por que as mulheres dessa região da China passam pela menopausa sem sofrer com fogachos ou insônia.'}
               </h1>
 
               <p className="text-xl sm:text-2xl text-[#5A554E] font-serif leading-relaxed mb-6 font-normal">
-                Pesquisadores foram até um vilarejo remoto na China e encontraram hábitos surpreendentes que chamaram a atenção da comunidade científica
+                {symptomFocus === 'metabolismo'
+                  ? 'Pesquisadores foram até um vilarejo remoto na China e encontraram hábitos surpreendentes que mantêm a taxa metabólica ativa e a vitalidade na maturidade'
+                  : 'Pesquisadores foram até um vilarejo remoto na China e encontraram hábitos surpreendentes que chamaram a atenção da comunidade científica'}
               </p>
 
               {/* Byline */}
@@ -532,6 +573,19 @@ export function QuizFunnel({ initialStep = 'welcome' }: QuizFunnelProps) {
                       </p>
                     </div>
                   </div>
+                </div>
+
+                {/* Bridge to the E-book Offer */}
+                <div className="my-10 p-6 sm:p-8 bg-[#FBF7F0] border-l-4 border-[#9E4A3B] rounded-r-2xl text-left">
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#9E4A3B] block mb-2">
+                    Da Pesquisa Científica Para a Sua Cozinha
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-serif font-black text-[#1E1E1E] mb-3">
+                    Como Adaptamos Esse Segredo Chinês em um Passo a Passo Prático
+                  </h3>
+                  <p className="text-base sm:text-lg text-[#3E3A34] leading-relaxed mb-0">
+                    Para que você não precise decifrar centenas de páginas de estudos nem buscar ingredientes inacessíveis, traduzimos e organizamos todos os hábitos, receitas e infusões ancestrais de Bama em um guia digital simples e direto ao ponto: o <strong>Protocolo de Bama</strong>.
+                  </p>
                 </div>
 
                 {/* Final Call To Action Box (Hotmart - Mini Sales Page) */}
