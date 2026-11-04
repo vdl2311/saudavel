@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Sparkles, ArrowRight, Clock, ShieldCheck, Leaf, BookOpen, CheckCircle2, Check } from 'lucide-react';
+import { InteractiveEbookPreview } from './InteractiveEbookPreview';
 
 export interface QuizFunnelProps {
   initialStep?: 'welcome' | 'quiz' | 'analyzing' | 'result' | 'article';
@@ -608,9 +609,12 @@ export function QuizFunnel({ initialStep = 'welcome' }: QuizFunnelProps) {
                   </h3>
 
                   {/* Subtitle / Lead */}
-                  <p className="text-stone-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-8 font-normal">
+                  <p className="text-stone-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-6 font-normal">
                     Reunimos todo o passo a passo detalhado, receitas práticas, guia de infusões calmantes e o método diário de respiração e equilíbrio em um material completo e acessível.
                   </p>
+
+                  {/* Interactive E-book Preview Component */}
+                  <InteractiveEbookPreview />
 
                   {/* Deliverables / Value Stack */}
                   <div className="bg-[#181412]/80 border border-[#3A3027] rounded-2xl p-5 sm:p-7 mb-8 text-left max-w-2xl mx-auto">
