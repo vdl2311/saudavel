@@ -9,9 +9,9 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<QuizFunnel initialStep="welcome" />} />
-        <Route path="/artigo-exclusivo" element={<QuizFunnel initialStep="article" />} />
-        <Route path="/artigo" element={<QuizFunnel initialStep="article" />} />
+        <Route path="/" element={<QuizFunnel />} />
+        <Route path="/artigo-exclusivo" element={<QuizFunnel />} />
+        <Route path="/artigo" element={<QuizFunnel />} />
         <Route path="/politica-de-privacidade" element={<Privacy />} />
         <Route path="/privacidade" element={<Privacy />} />
         <Route path="/termos-de-uso" element={<Terms />} />
